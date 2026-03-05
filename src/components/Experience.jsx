@@ -1,0 +1,160 @@
+const expKeyframes = `
+  @keyframes expFadeSlideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+`;
+if (typeof document !== 'undefined' && !document.getElementById('exp-keyframes')) {
+  document.head.insertAdjacentHTML("beforeend", `<style id="exp-keyframes">${expKeyframes}</style>`);
+}
+
+export default function Experience() {
+  return (
+    <div style={pageContainer}>
+      <h1 style={mainTitle}>My Work Experience</h1>
+
+      <div style={timelineContainer}>
+
+        {/* INTERN CARD */}
+        <div style={{ ...card, animation: "expFadeSlideUp 0.6s ease-out forwards", opacity: 0 }}>
+          <img
+            src="/mindgraph-logo.png"
+            alt="Mindgraph Logo"
+            style={iconStyle}
+          />
+
+          <div>
+            <h2 style={roleTitle}>Quality Assurance Intern</h2>
+            <h3 style={company}>Mindgraph Technologies PVT LTD</h3>
+            <p style={duration}>Feb 2024 – Aug 2024</p>
+
+            <p style={description}>
+              Gained hands-on experience in manual and automation testing
+              of web and API-based applications.
+            </p>
+
+            <ul style={list}>
+              <li>Designed and executed functional & regression test cases.</li>
+              <li>Performed API testing using Postman.</li>
+              <li>Developed automation scripts using Selenium & TestNG.</li>
+              <li>Assisted in performance testing using JMeter.</li>
+              <li>Logged and tracked defects using Jira.</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* VERTICAL TIMELINE LINE */}
+        <div style={verticalLine}></div>
+
+        {/* FULL TIME CARD */}
+        <div style={{ ...card, animation: "expFadeSlideUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
+          <img
+            src="/mindgraph-logo.png"
+            alt="Mindgraph Logo"
+            style={iconStyle}
+          />
+
+          <div>
+            <h2 style={roleTitle}>Quality Assurance Engineer</h2>
+            <h3 style={company}>Mindgraph Technologies PVT LTD</h3>
+            <p style={duration}>Aug 2024 – Present</p>
+
+            <p style={description}>
+              Leading end-to-end quality assurance activities for enterprise
+              web and API-based applications ensuring stable production releases.
+            </p>
+
+            <ul style={list}>
+              <li>Designed detailed test cases & test scenarios.</li>
+              <li>Performed functional, regression, integration & smoke testing.</li>
+              <li>Automated test scripts using Selenium WebDriver & TestNG.</li>
+              <li>Implemented Page Object Model (POM) framework.</li>
+              <li>Conducted API validation using Postman.</li>
+              <li>Executed performance testing using JMeter.</li>
+              <li>Managed defects lifecycle using Jira in Agile/Scrum environment.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+/* ================= STYLES ================= */
+
+const pageContainer = {
+  paddingTop: "120px",
+  padding: "120px 40px",
+  minHeight: "100vh",
+  background: "#0f172a",
+  color: "white"
+};
+
+const mainTitle = {
+  fontSize: "42px",
+  marginBottom: "60px",
+  textAlign: "center"
+};
+
+const timelineContainer = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  maxWidth: "800px",
+  margin: "0 auto",
+  gap: "20px"
+};
+
+const verticalLine = {
+  width: "3px",
+  height: "70px",
+  background: "linear-gradient(to bottom, #38bdf8, #8b5cf6)",
+  borderRadius: "2px",
+  opacity: 0,
+  animation: "expFadeSlideUp 0.6s ease-out 0.15s forwards"
+};
+
+const card = {
+  display: "flex",
+  gap: "25px",
+  background: "rgba(255,255,255,0.05)",
+  padding: "35px",
+  borderRadius: "20px",
+  backdropFilter: "blur(10px)",
+  transition: "0.3s",
+  alignItems: "flex-start",
+  width: "100%"
+};
+
+const iconStyle = {
+  width: "80px",
+  height: "80px",
+  objectFit: "contain"
+};
+
+const roleTitle = {
+  fontSize: "22px",
+  marginBottom: "5px"
+};
+
+const company = {
+  fontSize: "18px",
+  opacity: 0.9
+};
+
+const duration = {
+  fontSize: "14px",
+  opacity: 0.6,
+  marginBottom: "15px"
+};
+
+const description = {
+  marginBottom: "15px",
+  opacity: 0.8
+};
+
+const list = {
+  lineHeight: "1.8",
+  fontSize: "14px"
+};

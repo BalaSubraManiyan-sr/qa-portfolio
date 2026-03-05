@@ -1,0 +1,98 @@
+import { useNavigate } from "react-router-dom";
+
+export default function Home() {
+  const navigate = useNavigate();
+  return (
+    <div style={heroContainer}>
+      <div className="hero-glow-orb"></div>
+      <div style={overlay}></div>
+
+      <div style={content}>
+        <p style={smallTag}>QUALITY ASSURANCE ENGINEER</p>
+
+        <h1 style={heading}>
+          Delivering
+          <span style={gradientText}> Reliable & Bug-Free </span>
+          Software Experiences
+        </h1>
+
+        <p style={description}>
+          Hi, I’m <strong>Bala Subra Maniyan S R</strong>, a Quality Assurance Engineer specialized in Manual Testing and Selenium Automation. I bridge the gap between technical teams and stakeholders by collaborating with development teams and stakeholders to ensure reliable and high-quality software releases.
+        </p>
+
+        <button
+          className="home-explore-btn"
+          onClick={() => navigate("/projects")}
+          style={{ opacity: 0, animation: "fadeUp 1s ease forwards", animationDelay: "0.8s" }}
+        >
+          Explore My Work <span className="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const heroContainer = {
+  height: "100vh",
+  background: "linear-gradient(135deg, #0f172a, #1e293b)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  position: "relative",
+  color: "white",
+  overflow: "hidden"
+};
+
+const overlay = {
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  backgroundImage:
+    "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+  backgroundSize: "40px 40px",
+  opacity: 0.3
+};
+
+const content = {
+  maxWidth: "900px",
+  zIndex: 1,
+  padding: "20px"
+};
+
+const smallTag = {
+  fontSize: "14px",
+  letterSpacing: "2px",
+  marginBottom: "20px",
+  opacity: 0,
+  animation: "fadeUp 1s ease forwards",
+  animationDelay: "0.2s"
+};
+
+const heading = {
+  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+  fontWeight: "bold",
+  lineHeight: "1.2",
+  opacity: 0,
+  animation: "fadeUp 1s ease forwards",
+  animationDelay: "0.4s"
+};
+
+const gradientText = {
+  background: "linear-gradient(90deg, #38bdf8, #a78bfa, #38bdf8)",
+  backgroundSize: "200% auto",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  display: "inline-block",
+  animation: "gradientShift 4s linear infinite, float 4s ease-in-out infinite"
+};
+
+const description = {
+  marginTop: "30px",
+  fontSize: "18px",
+  lineHeight: "1.7",
+  opacity: 0,
+  animation: "fadeUp 1s ease forwards",
+  animationDelay: "0.6s"
+};
+
