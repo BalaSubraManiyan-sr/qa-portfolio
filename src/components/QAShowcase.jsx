@@ -96,12 +96,14 @@ export default function QAShowcase() {
                                 </p>
                             </div>
 
+
                             <div style={{ ...resultBox, background: "transparent", border: "none", paddingLeft: 0 }}>
                                 <h3 style={{ ...sectionTitle, color: "#60a5fa" }}>Screenshot / Link</h3>
                                 <p style={paragraphText}>
-                                    <a href="#" style={linkStyle}>🔗 Issue_recording_auth_flow.mp4</a>
+                                    <a href="#" onClick={(e) => e.preventDefault()} style={linkStyle}>🔗 Issue_recording_auth_flow.mp4</a>
                                 </p>
                             </div>
+
                         </div>
                     </div>
                 </motion.div>

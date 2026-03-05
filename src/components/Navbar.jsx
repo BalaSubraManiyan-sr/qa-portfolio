@@ -1,4 +1,14 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const navLinks = [
+  { to: "/", label: "Home", end: true },
+  { to: "/about", label: "About" },
+  { to: "/projects", label: "Projects" },
+  { to: "/experience", label: "Experience" },
+  { to: "/qa-showcase", label: "QA Showcase" },
+  { to: "/approach", label: "Approach" },
+  { to: "/contact", label: "Contact" }
+];
 
 export default function Navbar() {
   return (
@@ -13,13 +23,19 @@ export default function Navbar() {
       </div>
 
       <div style={menuStyle} className="desktop-menu">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/experience">Experience</Link>
-        <Link to="/qa-showcase">QA Showcase</Link>
-        <Link to="/approach">Approach</Link>
-        <Link to="/contact">Contact</Link>
+        {navLinks.map(({ to, label, end }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={end}
+            style={({ isActive }) => ({
+              ...linkBase,
+              ...(isActive ? activeLink : {})
+            })}
+          >
+            {label}
+          </NavLink>
+        ))}
       </div>
     </nav>
   );
@@ -51,4 +67,22 @@ const menuStyle = {
   display: "flex",
   gap: "30px",
   fontSize: "16px"
+};
+
+const linkBase = {
+  color: "#cbd5e1",
+  textDecoration: "none",
+  position: "relative",
+  paddingBottom: "4px",
+  transition: "color 0.3s ease",
+  fontWeight: "500"
+};
+
+const activeLink = {
+  background: "linear-gradient(90deg, #60a5fa, #a855f7)",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  fontWeight: "700",
+  borderBottom: "2px solid #60a5fa",
+  paddingBottom: "2px"
 };
