@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <div style={heroContainer}>
       <div className="hero-glow-orb"></div>
-      <div style={overlay}></div>
 
       <div style={content}>
         <p style={smallTag}>QUALITY ASSURANCE ENGINEER</p>
@@ -48,9 +47,6 @@ const overlay = {
   position: "absolute",
   width: "100%",
   height: "100%",
-  backgroundImage:
-    "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-  backgroundSize: "40px 40px",
   opacity: 0.3
 };
 

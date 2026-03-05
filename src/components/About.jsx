@@ -137,7 +137,7 @@ export default function About() {
                   display: "flex",
                   gap: "15px",
                   width: "max-content",
-                  animation: "marquee 25s linear infinite"
+                  animation: "marquee 45s linear infinite"
                 }}>
                   {[
                     "Functional Testing", "Smoke & Sanity Testing", "Regression Testing", "System Integration Testing (SIT)",
@@ -400,8 +400,8 @@ export default function About() {
           <p style={{ marginTop: "10px", fontSize: "16px" }}>Download my resume to explore my experience in manual testing, automation, API validation, and enterprise QA projects.</p>
 
           <a
-            href="/Bala_Subra_Maniyan_QA_Resume.pdf"
-            download="Bala_Subra_Maniyan_QA_Resume.pdf"
+            href="/BALA_SUBRA_MANIYAN_S_R_QA_Resume.pdf"
+            download="BALA_SUBRA_MANIYAN_S_R_QA_Resume.pdf"
             style={{ textDecoration: "none" }}
           >
             <button style={downloadBtn}>
@@ -420,10 +420,7 @@ const pageContainer = {
   paddingTop: "120px",
   minHeight: "100vh",
   background: "#0f172a",
-  backgroundImage:
-    "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-  backgroundSize: "40px 40px",
-  padding: "120px 5px 40px 5px",
+  padding: "120px 40px 40px 40px", /* Adjusted left/right padding to 40px */
   color: "white"
 };
 

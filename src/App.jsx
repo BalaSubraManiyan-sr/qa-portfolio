@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import QAShowcase from "./components/QAShowcase";
 import Approach from "./components/Approach";
 import Contact from "./components/Contact";
 
@@ -20,6 +21,7 @@ const backgrounds = {
   "/about": "linear-gradient(135deg, #1e3a8a, #312e81)",
   "/projects": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
   "/experience": "linear-gradient(135deg, #0f0c29, #302b63)",
+  "/qa-showcase": "linear-gradient(135deg, #0f172a, #111827)",
   "/approach": "linear-gradient(135deg, #141e30, #243b55)",
   "/contact": "linear-gradient(135deg, #0f172a, #134e4a)"
 };
@@ -75,6 +77,7 @@ function AnimatedRoutes() {
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/experience" element={<Experience />} />
+              <Route path="/qa-showcase" element={<QAShowcase />} />
               <Route path="/approach" element={<Approach />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>

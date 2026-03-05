@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -144,7 +145,7 @@ export default function Projects() {
             )}
             <div style={cardHeader}>
               <div>
-                <h2>{project.title}</h2>
+                <h2 style={{ fontSize: "20px" }}>{project.title}</h2>
                 <p style={{ opacity: 0.7, marginTop: "5px" }}>{project.domain}</p>
               </div>
             </div>
@@ -176,7 +177,7 @@ export default function Projects() {
             )}
             <div style={cardHeader}>
               <div>
-                <h2>{project.title}</h2>
+                <h2 style={{ fontSize: "20px" }}>{project.title}</h2>
                 <p style={{ opacity: 0.8, marginTop: "10px", lineHeight: "1.5" }}>{project.domain}</p>
               </div>
             </div>
@@ -184,29 +185,21 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Project Modal */}
-      {selectedProject && (
+      {/* Project Modal via Portal to escape stacking contexts */}
+      {selectedProject && createPortal(
         <div style={modalOverlay} onClick={() => setSelectedProject(null)}>
           <div
             style={{
               ...modalContent,
-              position: "absolute",
-              ...(clickOrigin.type === 'pro'
-                ? {
-                  top: "10vh",
-                  bottom: "auto",
-                  transformOrigin: "top center",
-                }
-                : {
-                  bottom: "10vh",
-                  top: "auto",
-                  transformOrigin: "bottom center",
-                }),
-              left: `${Math.max(20, Math.min(window.innerWidth - Math.min(700, window.innerWidth - 40) - 20, clickOrigin.rect.left + (clickOrigin.rect.width / 2) - (Math.min(700, window.innerWidth - 40) / 2)))}px`,
-              maxHeight: "80vh",
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              maxHeight: "85vh",
               overflowY: "auto",
-              animation: "modalDirZoom 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
-              margin: 0
+              margin: 0,
+              zIndex: 1001,
+              animation: "modalZoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards"
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -220,7 +213,7 @@ export default function Projects() {
                 />
               </div>
             )}
-            <h2 style={{ marginBottom: "10px", fontSize: "24px", lineHeight: "1.3" }}>{selectedProject.title}</h2>
+            <h2 style={{ marginBottom: "10px", fontSize: "20px", lineHeight: "1.3", color: "white" }}>{selectedProject.title}</h2>
             <p style={{ opacity: 0.8, marginBottom: "25px", color: "#38bdf8" }}>{selectedProject.domain}</p>
             <ul style={{ ...bulletList, marginTop: "0" }}>
               {selectedProject.points.map((point, i) => (
@@ -228,7 +221,8 @@ export default function Projects() {
               ))}
             </ul>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
@@ -245,14 +239,14 @@ const pageContainer = {
 };
 
 const modalKeyframes = `
-  @keyframes modalDirZoom {
+  @keyframes modalZoomIn {
     0% {
       opacity: 0;
-      transform: scale(0.5);
+      transform: translate(-50%, -50%) scale(0.8);
     }
     100% {
       opacity: 1;
-      transform: scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 
