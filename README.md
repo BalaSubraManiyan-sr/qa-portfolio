@@ -1,21 +1,33 @@
-<<<<<<< HEAD
-# React + Vite
+# QA Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my Quality Assurance Portfolio.
 
-Currently, two official plugins are available:
+This portfolio showcases my experience in software testing, including manual testing, automation, API testing, and quality assurance practices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔍 About Me
+I am a passionate QA Engineer focused on delivering high-quality software through structured testing strategies and continuous improvement.
 
-## React Compiler
+## 🛠 Tools & Technologies
+- Selenium
+- Postman
+- JIRA
+- TestRail
+- Git & GitHub
+- SQL
+- Java / JavaScript
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Projects
+This portfolio includes:
+- Test case design
+- Bug reports
+- Automation testing examples
+- QA project documentation
 
-## Expanding the ESLint configuration
+## 🌐 Live Portfolio
+Coming soon...
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
+## 📫 Contact
+Feel free to connect with me for QA opportunities.
+nee
 # qa-portfolio
 My Quality Assurance portfolio featuring testing projects, tools, and experience in ensuring high-quality software delivery.
->>>>>>> 9106a1bf39dbe3da7c302fbbf098a97e2dbb0514
