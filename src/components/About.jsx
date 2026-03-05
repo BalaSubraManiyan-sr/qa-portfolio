@@ -137,7 +137,7 @@ export default function About() {
                   display: "flex",
                   gap: "15px",
                   width: "max-content",
-                  animation: "marquee 45s linear infinite"
+                  animation: "marquee 60s linear infinite"
                 }}>
                   {[
                     "Functional Testing", "Smoke & Sanity Testing", "Regression Testing", "System Integration Testing (SIT)",
