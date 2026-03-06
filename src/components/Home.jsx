@@ -16,7 +16,7 @@ export default function Home() {
         </h1>
 
         <p style={description}>
-          Hi, I’m <strong>Bala Subra Maniyan S R</strong>, a Quality Assurance Engineer specialized in Manual Testing and Selenium Automation. I bridge the gap between technical teams and stakeholders by collaborating with development teams and stakeholders to ensure reliable and high-quality software releases.
+          Hi, I’m <strong>Bala Subra Maniyan S R</strong>, a Quality Assurance Engineer focused on delivering reliable, scalable, and defect-free software through automation and strategic testing.
         </p>
 
         <button

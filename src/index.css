@@ -97,28 +97,6 @@ svg {
   }
 }
 
-@keyframes logo-heartbeat {
-  0% {
-    transform: scale(1);
-  }
-
-  25% {
-    transform: scale(1.05);
-  }
-
-  50% {
-    transform: scale(1);
-  }
-
-  75% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 @keyframes logo-glow {
 
   0%,
@@ -137,14 +115,13 @@ svg {
   width: auto;
   max-width: none;
   object-fit: contain;
-  animation: logo-heartbeat 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
+  animation: logo-glow 4s ease-in-out infinite;
   transition: all 0.3s ease;
   background: transparent !important;
 }
 
 
 .nav-logo-animated:hover {
-  transform: scale(1.15);
   filter: drop-shadow(0 0 30px rgba(56, 189, 248, 1));
 }
 
@@ -347,42 +324,6 @@ nav a:hover::after {
 
 .logo {
   cursor: pointer;
-}
-
-.nav-logo-pulse {
-  height: 45px;
-  width: auto;
-  object-fit: contain;
-  animation: logoHeartbeat 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
-}
-
-@keyframes logoHeartbeat {
-  0% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
-  }
-
-  15% {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.8));
-  }
-
-  30% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
-  }
-
-  45% {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.8));
-  }
-
-  60%,
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3));
-  }
 }
 
 .nav-name-animate {
@@ -951,54 +892,8 @@ a:hover svg {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 30px !important;
   }
-}
 
-.responsive-title {
-  font-size: clamp(1.2rem, 5vw, 1.75rem) !important;
-  line-height: 1.3 !important;
-  word-break: break-word !important;
-  hyphens: auto !important;
-  white-space: normal !important;
-}
-
-.glass-card-mobile-fix {
-  overflow-x: hidden !important;
-  min-width: 0 !important;
-}
-
-@media (max-width: 900px) {
-  .desktop-menu {
-    display: none !important;
-  }
-
-  .mobile-icon {
-    display: block !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-page-container {
-    padding: 100px 20px 40px 20px !important;
-  }
-
-  .about-content-wrapper {
-    overflow-x: hidden !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    max-width: 100% !important;
-  }
-
-  .glass-card-mobile-fix {
-    padding: clamp(20px, 5vw, 30px) !important;
-  }
-
-  h2 {
-    font-size: 1.2rem !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-  }
-
-  /* Vertical Timeline for Mobile */
+  /* Vertical Timeline for Mobile/Tablet */
   .timeline-container {
     flex-direction: column !important;
     padding: 10px 0 !important;
@@ -1060,6 +955,52 @@ a:hover svg {
     font-size: 18px !important;
     flex-shrink: 0 !important;
   }
+}
+
+.responsive-title {
+  font-size: clamp(1.2rem, 5vw, 1.75rem) !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  hyphens: auto !important;
+  white-space: normal !important;
+}
+
+.glass-card-mobile-fix {
+  overflow-x: hidden !important;
+  min-width: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .desktop-menu {
+    display: none !important;
+  }
+
+  .mobile-icon {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-container {
+    padding: 100px 20px 40px 20px !important;
+  }
+
+  .about-content-wrapper {
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  .glass-card-mobile-fix {
+    padding: clamp(20px, 5vw, 30px) !important;
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
 
   /* Quote Fix */
   .philosophy-quote-card {
@@ -1099,5 +1040,16 @@ a:hover svg {
 
   .glass-card-mobile-fix {
     padding: 15px !important;
+  }
+}
+
+/* Landscape Mobile Fixes */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar {
+    padding: 10px 30px !important;
+  }
+
+  .about-page-container {
+    padding-top: 80px !important;
   }
 }

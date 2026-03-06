@@ -80,7 +80,7 @@ const navStyle = {
   position: "fixed",
   top: 0,
   width: "100%",
-  padding: "clamp(15px, 3vh, 25px) clamp(20px, 5vw, 60px)",
+  padding: "clamp(10px, 2vh, 20px) clamp(10px, 2vw, 20px)",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",

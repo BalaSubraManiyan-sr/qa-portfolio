@@ -81,11 +81,24 @@ export default function About() {
               <RunningCode />
             </div>
             <div style={{ padding: "clamp(20px, 5vw, 30px)", textAlign: "left" }}>
-              <h2 className="responsive-title" style={{ margin: 0, lineHeight: "1.4" }}>
-                I prioritize delivering reliable and high-quality software
-                experiences by combining structured testing, automation,
-                and close collaboration with clients and development teams.
-              </h2>
+              <div style={{
+                margin: 0,
+                lineHeight: "1.8",
+                fontSize: "22px",
+                fontWeight: "600",
+                fontFamily: "Inter, sans-serif",
+                hyphens: "none",
+                wordBreak: "normal",
+                overflowWrap: "normal",
+                color: "#e5e7eb"
+              }}>
+                I am a passionate <span style={{ color: "#38bdf8", fontWeight: "800" }}>Quality Assurance Engineer</span> with
+                hands-on experience in <span style={{ color: "#38bdf8", fontWeight: "800" }}>manual testing</span>,
+                <span style={{ color: "#38bdf8", fontWeight: "800" }}> automation testing</span>, and
+                <span style={{ color: "#38bdf8", fontWeight: "800" }}> API validation</span>. I focus on delivering reliable and
+                high quality software by identifying defects early, improving test coverage, and supporting stable releases through
+                effective testing strategies.
+              </div>
             </div>
           </div>
 
