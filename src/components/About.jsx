@@ -206,6 +206,43 @@ export default function About() {
       </div>
 
 
+      {/* SECTION 2.15 - Testing Environments & Platforms */}
+      <div style={{ marginTop: "40px" }}>
+        <div style={{ ...glassCardLarge, textAlign: "left" }} className="glass-card-mobile-fix">
+          <p style={{ color: "#94a3b8", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px" }}>
+            Testing Environments & Platforms
+          </p>
+          <h2 className="responsive-title" style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "30px" }}>
+            Platforms & Tools I leverage
+          </h2>
+
+          <div className="platform-grid">
+            {[
+              "Web Application Testing",
+              "Mobile Application Testing on Real Devices",
+              "iOS Testing using BrowserStack",
+              "Cross-Browser Testing (Chrome, Edge)",
+              "API Validation using Postman",
+              "Load & Performance Testing using JMeter",
+              "Automation Testing using Selenium WebDriver",
+              "Defect Tracking and Lifecycle Management using JIRA"
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="platform-pill stagger-reveal"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+
       {/* SECTION 2.25 - QA Philosophy Quote */}
       <div style={{ marginTop: "80px", marginBottom: "20px" }}>
         <div className="fade-scale-up philosophy-quote-card" style={{
