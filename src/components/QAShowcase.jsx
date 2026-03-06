@@ -16,33 +16,34 @@ export default function QAShowcase() {
             </div>
 
             {/* Bug Tracking Dashboard */}
-            <div style={tagStyle}>Defect Summary Dashboard</div>
+            <div style={tagStyle} className="premium-glow-card">Defect Summary Dashboard</div>
             <div style={dashboardGrid}>
-                <motion.div style={{ ...dashboardCardBase, borderTop: "4px solid #3b82f6" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(59, 130, 246, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #3b82f6", "--glow-rgb": "59 130 246" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(59, 130, 246, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
                     <div style={{ ...dashboardNumber, color: "#93c5fd" }}>2</div>
                     <div style={dashboardLabel}>Open Bugs</div>
                 </motion.div>
-                <motion.div style={{ ...dashboardCardBase, borderTop: "4px solid #10b981" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(16, 185, 129, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #10b981", "--glow-rgb": "16 185 129" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(16, 185, 129, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
                     <div style={{ ...dashboardNumber, color: "#6ee7b7" }}>5</div>
                     <div style={dashboardLabel}>Closed Bugs</div>
                 </motion.div>
-                <motion.div style={{ ...dashboardCardBase, borderTop: "4px solid #ef4444" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(239, 68, 68, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #ef4444", "--glow-rgb": "239 68 68" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(239, 68, 68, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
                     <div style={{ ...dashboardNumber, color: "#fca5a5" }}>1</div>
                     <div style={dashboardLabel}>High Severity</div>
                 </motion.div>
-                <motion.div style={{ ...dashboardCardBase, borderTop: "4px solid #f59e0b" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(245, 158, 11, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #f59e0b", "--glow-rgb": "245 158 11" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(245, 158, 11, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
                     <div style={{ ...dashboardNumber, color: "#fcd34d" }}>2</div>
                     <div style={dashboardLabel}>Medium Severity</div>
                 </motion.div>
             </div>
 
             <div style={cardWrapper}>
-                <div style={tagStyle}>
+                <div style={tagStyle} className="premium-glow-card">
                     Sample Defect Documentation
                 </div>
 
                 <motion.div
                     style={bugCard}
+                    className="premium-glow-card"
                     whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(59, 130, 246, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(59, 130, 246, 0.35)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -128,9 +129,10 @@ export default function QAShowcase() {
             <div style={{ width: "100%", maxWidth: "1600px", display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
 
                 {/* Execution Details & Stats */}
-                <div style={tagStyle}>Test Execution Report Summary</div>
+                <div style={tagStyle} className="premium-glow-card">Test Execution Report Summary</div>
                 <motion.div
                     style={executionSummaryContainer}
+                    className="premium-glow-card"
                     whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(59, 130, 246, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(59, 130, 246, 0.35)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -149,9 +151,10 @@ export default function QAShowcase() {
                     </div>
                 </motion.div>
 
-                <div style={{ ...tagStyle, marginTop: "40px" }}>Test Case Execution Showcase</div>
+                <div style={{ ...tagStyle, marginTop: "40px" }} className="premium-glow-card">Test Case Execution Showcase</div>
                 <motion.div
                     style={{ ...tableContainer, width: "100%", boxSizing: "border-box" }}
+                    className="premium-glow-card"
                     whileHover={{ scale: 1.005, boxShadow: "0 0 35px rgba(59, 130, 246, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(59, 130, 246, 0.35)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -253,6 +256,7 @@ export default function QAShowcase() {
                     <motion.div
                         key={index}
                         style={toolCard}
+                        className="premium-glow-card"
                         whileHover={{ y: -8, boxShadow: "0 0 30px rgba(59, 130, 246, 0.25), 0 15px 35px rgba(0, 0, 0, 0.3)", borderColor: "rgba(59, 130, 246, 0.45)" }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
                     >
@@ -298,7 +302,7 @@ const mainTitle = {
     fontSize: "42px",
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: "30px",
+    marginBottom: "10px",
     background: "linear-gradient(90deg, #60a5fa, #a855f7, #ec4899)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
@@ -349,8 +353,9 @@ const dashboardCardBase = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    minWidth: "160px",
-    flex: "1 1 160px"
+    minWidth: "140px",
+    flex: "1 1 140px",
+    textAlign: "center"
 };
 
 const dashboardNumber = {
@@ -454,8 +459,8 @@ const divider = {
 
 const detailsGrid = {
     display: "grid",
-    gridTemplateColumns: "minmax(300px, 1fr) minmax(300px, 1fr)",
-    gap: "40px"
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "clamp(20px, 4vw, 40px)"
 };
 
 const detailColumn = {
@@ -572,7 +577,7 @@ const detailText = {
 
 const toolsGrid = {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
     gap: "30px",
     width: "100%",
     maxWidth: "1200px",

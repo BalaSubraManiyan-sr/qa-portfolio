@@ -56,7 +56,8 @@ const RunningCode = () => {
           marginBottom: "6px",
           opacity: 0.6 + (i * 0.05),
           textShadow: line.includes('PASS') ? '0 0 5px rgba(74, 222, 128, 0.4)' : 'none',
-          whiteSpace: "nowrap"
+          whiteSpace: "pre-wrap",
+          wordBreak: "break-word"
         }}>
           {line}
         </div>
@@ -71,16 +72,16 @@ const RunningCode = () => {
 
 export default function About() {
   return (
-    <div style={pageContainer}>
+    <div style={pageContainer} className="about-page-container">
       <div className="about-content-wrapper">
         <div className="stable-2-column-grid">
           {/* TOP ROW: Image card and Strategic coverage */}
-          <div style={{ ...imageCard, height: "100%", margin: 0 }}>
+          <div style={{ ...imageCard, height: "100%", margin: 0 }} className="glass-card-mobile-fix">
             <div style={{ background: "rgba(0,0,0,0.2)" }}>
               <RunningCode />
             </div>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "10px 45px 45px 45px" }}>
-              <h2 style={{ margin: 0, fontSize: "24px", lineHeight: "1.6" }}>
+            <div style={{ padding: "clamp(20px, 5vw, 30px)", textAlign: "left" }}>
+              <h2 className="responsive-title" style={{ margin: 0, lineHeight: "1.4" }}>
                 I prioritize delivering reliable and high-quality software
                 experiences by combining structured testing, automation,
                 and close collaboration with clients and development teams.
@@ -88,9 +89,9 @@ export default function About() {
             </div>
           </div>
 
-          <div style={{ ...glassCard, margin: 0 }}>
+          <div style={{ ...glassCard, margin: 0, display: "flex", flexDirection: "column", textAlign: "left" }} className="glass-card-mobile-fix">
             <p>Comprehensive Quality Assurance</p>
-            <h2 style={{ fontSize: "28px" }}>Strategic Test Coverage</h2>
+            <h2 className="responsive-title" style={{ marginBottom: "10px" }}>Strategic Test Coverage</h2>
 
             <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
               {[
@@ -113,9 +114,9 @@ export default function About() {
 
           {/* BOTTOM ROW: Left (Scoop + Comp) and Right (Tools) */}
           <div style={{ display: "flex", flexDirection: "column", gap: "40px", height: "100%" }}>
-            <div style={{ ...glassCard, flex: 1, display: "flex", flexDirection: "column" }}>
+            <div style={{ ...glassCard, flex: 1, display: "flex", flexDirection: "column" }} className="glass-card-mobile-fix">
               <p>The Inside Scoop</p>
-              <h2 style={{ fontSize: "28px", marginBottom: "20px" }}>
+              <h2 className="responsive-title" style={{ marginBottom: "20px" }}>
                 Currently contributing to enterprise-level QA
                 projects at Mindgraph Technologies
               </h2>
@@ -128,9 +129,9 @@ export default function About() {
               </div>
             </div>
 
-            <div style={{ ...glassCard, overflow: "hidden" }}>
+            <div style={{ ...glassCard, overflow: "hidden" }} className="glass-card-mobile-fix">
               <p>Extensive Testing Expertise</p>
-              <h2 style={{ fontSize: "28px", marginBottom: "25px" }}>Core Testing Competencies</h2>
+              <h2 className="responsive-title" style={{ marginBottom: "25px" }}>Core Testing Competencies</h2>
 
               <div style={{ position: "relative", width: "100%", overflow: "hidden", paddingBottom: "10px" }}>
                 <div style={{
@@ -162,9 +163,9 @@ export default function About() {
           </div>
 
           <div style={{ ...rightColumn, height: "100%" }}>
-            <div style={{ ...glassCard, height: "100%" }}>
+            <div style={{ ...glassCard, height: "100%", display: "flex", flexDirection: "column", textAlign: "left" }} className="glass-card-mobile-fix">
               <p style={{ margin: 0 }}>QA Tools & Technologies</p>
-              <h2 style={{ fontSize: "28px", marginTop: "10px" }}>Tools and technologies powering my quality assurance workflow</h2>
+              <h2 className="responsive-title" style={{ marginTop: "10px", lineHeight: "1.3" }}>Tools and technologies powering my quality assurance workflow</h2>
 
               <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
                 {[
@@ -194,7 +195,7 @@ export default function About() {
 
       {/* SECTION 2.25 - QA Philosophy Quote */}
       <div style={{ marginTop: "80px", marginBottom: "20px" }}>
-        <div className="fade-scale-up" style={{
+        <div className="fade-scale-up philosophy-quote-card" style={{
           ...glassCardLarge,
           background: "rgba(56, 189, 248, 0.05)",
           borderLeft: "4px solid #38bdf8",
@@ -202,7 +203,7 @@ export default function About() {
           textAlign: "center",
           position: "relative"
         }}>
-          <span style={{
+          <span className="quote-mark-start" style={{
             position: "absolute",
             top: "10px",
             left: "20px",
@@ -211,11 +212,11 @@ export default function About() {
             fontFamily: "serif",
             lineHeight: 1
           }}>“</span>
-          <h2 style={{ fontSize: "24px", letterSpacing: "1px", marginBottom: "15px", color: "#38bdf8" }}>My QA Philosophy</h2>
+          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "15px", color: "#38bdf8" }}>My QA Philosophy</h2>
           <p style={{ fontSize: "18px", color: "#e2e8f0", lineHeight: "1.8", fontStyle: "italic" }}>
             "Quality is not just about finding defects — it’s about building confidence in every release. My goal is to ensure software is reliable, scalable, and delivers a seamless experience for every user. Great software is built when quality becomes everyone’s responsibility — QA ensures that promise is delivered."
           </p>
-          <span style={{
+          <span className="quote-mark-end" style={{
             position: "absolute",
             bottom: "-10px",
             right: "20px",
@@ -231,7 +232,7 @@ export default function About() {
       <div style={{ marginTop: "60px" }}>
         <div style={{ ...glassCardLarge, paddingBottom: "30px" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <h2 style={{ fontSize: "28px", letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>My Testing Process</h2>
+            <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>My Testing Process</h2>
             <p style={{ color: "#94a3b8", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
               A structured and quality-driven approach to ensure reliable software delivery.
             </p>
@@ -288,7 +289,7 @@ export default function About() {
       {/* SECTION 2.75 - QA Impact & Contributions */}
       <div style={{ marginTop: "60px" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "28px", letterSpacing: "1px", marginBottom: "10px" }}>QA Impact & Contributions</h2>
+          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px" }}>QA Impact & Contributions</h2>
           <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #38bdf8, #6366f1, transparent)", width: "30%", margin: "0 auto" }} />
         </div>
 
@@ -367,8 +368,8 @@ export default function About() {
 
       {/* SECTION 3 - Key Achievements */}
       <div style={{ marginTop: "60px" }}>
-        <div style={{ ...glassCardLarge, textAlign: "center", paddingBottom: "20px" }}>
-          <h2 style={{ fontSize: "28px", letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>KEY ACHIEVEMENTS</h2>
+        <div style={{ ...glassCardLarge, textAlign: "center", paddingBottom: "20px" }} className="glass-card-mobile-fix">
+          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>KEY ACHIEVEMENTS</h2>
           <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #38bdf8, #6366f1, transparent)", width: "100%", marginBottom: "30px" }} />
 
           <div style={{
@@ -420,7 +421,7 @@ const pageContainer = {
   paddingTop: "120px",
   minHeight: "100vh",
   background: "#0f172a",
-  padding: "120px 40px 40px 40px", /* Adjusted left/right padding to 40px */
+  padding: "clamp(100px, 12vh, 140px) clamp(10px, 4vw, 40px) 40px clamp(10px, 4vw, 40px)",
   color: "white"
 };
 

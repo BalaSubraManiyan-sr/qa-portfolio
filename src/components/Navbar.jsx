@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const navLinks = [
@@ -11,6 +12,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav style={navStyle}>
       <div style={logoStyle} className="nav-logo-container">
@@ -22,6 +25,7 @@ export default function Navbar() {
         />
       </div>
 
+      {/* Desktop Menu */}
       <div style={menuStyle} className="desktop-menu">
         {navLinks.map(({ to, label, end }) => (
           <NavLink
@@ -37,6 +41,35 @@ export default function Navbar() {
           </NavLink>
         ))}
       </div>
+
+      {/* Mobile Toggle */}
+      <div
+        className="mobile-icon"
+        onClick={() => setIsOpen(!isOpen)}
+        style={mobileIconStyle}
+      >
+        {isOpen ? "✕" : "☰"}
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div style={mobileMenuOverlay} className="mobile-menu-overlay">
+          {navLinks.map(({ to, label, end }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={end}
+              onClick={() => setIsOpen(false)}
+              style={({ isActive }) => ({
+                ...mobileLinkBase,
+                ...(isActive ? mobileActiveLink : {})
+              })}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
@@ -47,7 +80,7 @@ const navStyle = {
   position: "fixed",
   top: 0,
   width: "100%",
-  padding: "20px 60px",
+  padding: "clamp(15px, 3vh, 25px) clamp(20px, 5vw, 60px)",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -60,7 +93,8 @@ const logoStyle = {
   cursor: "pointer",
   display: "flex",
   alignItems: "center",
-  height: "auto"
+  height: "auto",
+  zIndex: 1002
 };
 
 const menuStyle = {
@@ -74,7 +108,7 @@ const linkBase = {
   textDecoration: "none",
   position: "relative",
   paddingBottom: "4px",
-  transition: "color 0.3s ease",
+  transition: "all 0.3s ease",
   fontWeight: "500"
 };
 
@@ -85,4 +119,42 @@ const activeLink = {
   fontWeight: "700",
   borderBottom: "2px solid #60a5fa",
   paddingBottom: "2px"
+};
+
+const mobileIconStyle = {
+  display: "none", // Shown/hidden via CSS media queries in index.css
+  fontSize: "32px",
+  color: "#38bdf8",
+  cursor: "pointer",
+  zIndex: 1005,
+  userSelect: "none"
+};
+
+const mobileMenuOverlay = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100vh",
+  background: "#0f172a",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "25px",
+  zIndex: 1001,
+  animation: "fadeUp 0.4s ease forwards"
+};
+
+const mobileLinkBase = {
+  color: "#cbd5e1",
+  textDecoration: "none",
+  fontSize: "24px",
+  fontWeight: "600",
+  transition: "all 0.3s ease"
+};
+
+const mobileActiveLink = {
+  color: "#38bdf8",
+  transform: "scale(1.1)"
 };

@@ -3,6 +3,26 @@ const expKeyframes = `
     0% { opacity: 0; transform: translateY(40px); }
     100% { opacity: 1; transform: translateY(0); }
   }
+
+  @media (max-width: 768px) {
+    .experience-card {
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      padding: 25px !important;
+      gap: 15px !important;
+    }
+    
+    .experience-icon {
+      width: 60px !important;
+      height: 60px !important;
+    }
+
+    .experience-list {
+      text-align: left !important;
+      padding-left: 20px !important;
+    }
+  }
 `;
 if (typeof document !== 'undefined' && !document.getElementById('exp-keyframes')) {
   document.head.insertAdjacentHTML("beforeend", `<style id="exp-keyframes">${expKeyframes}</style>`);
@@ -16,10 +36,14 @@ export default function Experience() {
       <div style={timelineContainer}>
 
         {/* INTERN CARD */}
-        <div style={{ ...card, animation: "expFadeSlideUp 0.6s ease-out forwards", opacity: 0 }}>
+        <div
+          className="experience-card"
+          style={{ ...card, animation: "expFadeSlideUp 0.6s ease-out forwards", opacity: 0 }}
+        >
           <img
             src="/mindgraph-logo.png"
             alt="Mindgraph Logo"
+            className="experience-icon"
             style={iconStyle}
           />
 
@@ -33,7 +57,7 @@ export default function Experience() {
               of web and API-based applications.
             </p>
 
-            <ul style={list}>
+            <ul style={list} className="experience-list">
               <li>Designed and executed functional & regression test cases.</li>
               <li>Performed API testing using Postman.</li>
               <li>Developed automation scripts using Selenium & TestNG.</li>
@@ -47,10 +71,14 @@ export default function Experience() {
         <div style={verticalLine}></div>
 
         {/* FULL TIME CARD */}
-        <div style={{ ...card, animation: "expFadeSlideUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
+        <div
+          className="experience-card"
+          style={{ ...card, animation: "expFadeSlideUp 0.6s ease-out 0.3s forwards", opacity: 0 }}
+        >
           <img
             src="/mindgraph-logo.png"
             alt="Mindgraph Logo"
+            className="experience-icon"
             style={iconStyle}
           />
 
@@ -64,7 +92,7 @@ export default function Experience() {
               web and API-based applications ensuring stable production releases.
             </p>
 
-            <ul style={list}>
+            <ul style={list} className="experience-list">
               <li>Designed detailed test cases & test scenarios.</li>
               <li>Performed functional, regression, integration & smoke testing.</li>
               <li>Automated test scripts using Selenium WebDriver & TestNG.</li>
@@ -93,8 +121,10 @@ const pageContainer = {
 
 const mainTitle = {
   fontSize: "42px",
-  marginBottom: "60px",
-  textAlign: "center"
+  marginBottom: "10px",
+  textAlign: "center",
+  color: "white",
+  fontWeight: "bold"
 };
 
 const timelineContainer = {

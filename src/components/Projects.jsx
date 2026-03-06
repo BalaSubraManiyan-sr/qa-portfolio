@@ -118,7 +118,7 @@ export default function Projects() {
           All enterprise projects delivered under
           <strong> Malaysia Airports Holdings Berhad (MAHB)</strong>
         </p>
-        <p style={{ ...companyText, marginTop: "15px", opacity: 0.9, lineHeight: "1.6", maxWidth: "100%", whiteSpace: "nowrap" }}>
+        <p style={{ ...companyText, marginTop: "15px", opacity: 0.9, lineHeight: "1.6", maxWidth: "100%" }}>
           Maintained 100% client satisfaction across the MAHB ecosystem by facilitating transparent communication and conducting collaborative UAT sessions directly with stakeholders to guarantee seamless deployment.
         </p>
       </div>
@@ -154,7 +154,7 @@ export default function Projects() {
       </div>
 
       {/* Internship Section */}
-      <h2 style={{ marginTop: "60px", textAlign: "center", marginBottom: "30px" }}>Internship Projects</h2>
+      <h2 style={{ ...mainTitle, marginTop: "60px", marginBottom: "10px" }}>Internship Projects</h2>
 
       <div className="projects-grid intern-grid" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "30px" }}>
         {internProjects.map((project, index) => (
@@ -191,13 +191,7 @@ export default function Projects() {
           <div
             style={{
               ...modalContent,
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              maxHeight: "85vh",
-              overflowY: "auto",
-              margin: 0,
+              margin: "auto",
               zIndex: 1001,
               animation: "modalZoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards"
             }}
@@ -242,11 +236,11 @@ const modalKeyframes = `
   @keyframes modalZoomIn {
     0% {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.8);
+      transform: scale(0.8);
     }
     100% {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      transform: scale(1);
     }
   }
 
@@ -286,8 +280,10 @@ document.head.insertAdjacentHTML("beforeend", `<style>${modalKeyframes}</style>`
 
 const mainTitle = {
   fontSize: "40px",
-  marginBottom: "30px",
-  textAlign: "center"
+  marginBottom: "10px",
+  textAlign: "center",
+  color: "white",
+  fontWeight: "bold"
 };
 
 const companySection = {
@@ -331,25 +327,27 @@ const modalOverlay = {
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: "rgba(15, 23, 42, 0.85)",
-  backdropFilter: "blur(5px)",
+  backgroundColor: "rgba(15, 23, 42, 0.95)",
+  backdropFilter: "blur(10px)",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  zIndex: 1000,
-  padding: "20px"
+  zIndex: 2000,
+  padding: "clamp(10px, 3vw, 20px)"
 };
 
 const modalContent = {
   background: "#1e293b",
-  padding: "30px",
-  borderRadius: "15px",
-  maxWidth: "700px",
-  width: "100%",
+  padding: "clamp(20px, 5vw, 40px)",
+  borderRadius: "20px",
+  maxWidth: "800px",
+  width: "95%",
   position: "relative",
   boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
   border: "1px solid rgba(255, 255, 255, 0.1)",
-  boxSizing: "border-box"
+  boxSizing: "border-box",
+  maxHeight: "90vh",
+  overflowY: "auto"
 };
 
 const modalCloseBtn = {
