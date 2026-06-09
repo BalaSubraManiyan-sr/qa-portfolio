@@ -33,7 +33,7 @@ export default function Home() {
 
 const heroContainer = {
   height: "100vh",
-  background: "linear-gradient(135deg, #0f172a, #1e293b)",
+  background: "transparent",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -61,6 +61,8 @@ const smallTag = {
   letterSpacing: "2px",
   marginBottom: "20px",
   opacity: 0,
+  color: "#D4AF37",
+  fontWeight: "600",
   animation: "fadeUp 1s ease forwards",
   animationDelay: "0.2s"
 };
@@ -75,7 +77,7 @@ const heading = {
 };
 
 const gradientText = {
-  background: "linear-gradient(90deg, #38bdf8, #a78bfa, #38bdf8)",
+  background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11, #F3E5AB)",
   backgroundSize: "200% auto",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",

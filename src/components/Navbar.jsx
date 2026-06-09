@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const navLinks = [
   { to: "/", label: "Home", end: true },
@@ -13,16 +13,26 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBrandingClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
 
   return (
     <nav style={navStyle}>
-      <div style={logoStyle} className="nav-logo-container">
+      <div onClick={handleBrandingClick} className="nav-branding">
         <img
-          src="/nav-logo-animated.png"
-          alt="QA Logo"
-          className="nav-logo-animated"
-          style={{ display: "block", border: "none" }}
+          src="/bsr-logo.png"
+          alt="BSR Logo"
+          className="nav-branding-logo"
         />
+        <span className="nav-branding-text">S R Bala Subra Maniyan</span>
       </div>
 
       {/* Desktop Menu */}
@@ -84,17 +94,10 @@ const navStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  background: "rgba(15, 23, 42, 0.7)",
+  background: "rgba(10, 10, 10, 0.75)",
   backdropFilter: "blur(12px)",
+  borderBottom: "1px solid rgba(212, 175, 55, 0.15)",
   zIndex: 1000
-};
-
-const logoStyle = {
-  cursor: "pointer",
-  display: "flex",
-  alignItems: "center",
-  height: "auto",
-  zIndex: 1002
 };
 
 const menuStyle = {
@@ -113,18 +116,18 @@ const linkBase = {
 };
 
 const activeLink = {
-  background: "linear-gradient(90deg, #60a5fa, #a855f7)",
+  background: "linear-gradient(90deg, #F3E5AB, #D4AF37)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   fontWeight: "700",
-  borderBottom: "2px solid #60a5fa",
+  borderBottom: "2px solid #D4AF37",
   paddingBottom: "2px"
 };
 
 const mobileIconStyle = {
   display: "none", // Shown/hidden via CSS media queries in index.css
   fontSize: "32px",
-  color: "#38bdf8",
+  color: "#D4AF37",
   cursor: "pointer",
   zIndex: 1005,
   userSelect: "none"
@@ -136,7 +139,7 @@ const mobileMenuOverlay = {
   left: 0,
   width: "100%",
   height: "100vh",
-  background: "#0f172a",
+  background: "#0A0A0A",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -155,6 +158,6 @@ const mobileLinkBase = {
 };
 
 const mobileActiveLink = {
-  color: "#38bdf8",
+  color: "#D4AF37",
   transform: "scale(1.1)"
 };

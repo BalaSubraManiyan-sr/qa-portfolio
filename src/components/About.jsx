@@ -39,7 +39,7 @@ const RunningCode = () => {
     <div style={{
       width: "100%",
       height: "260px",
-      background: "#050510",
+      background: "#0D0D0D",
       padding: "20px",
       fontFamily: "monospace",
       fontSize: "13px",
@@ -47,12 +47,12 @@ const RunningCode = () => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "flex-end",
-      borderBottom: "2px solid #312e81",
+      borderBottom: "2px solid #D4AF37",
       overflow: "hidden"
     }}>
       {lines.map((line, i) => (
         <div key={i} style={{
-          color: line.includes('PASS') ? '#4ade80' : line.includes('>') ? '#60a5fa' : '#a78bfa',
+          color: line.includes('PASS') ? '#4ade80' : line.includes('>') ? '#D4AF37' : '#F3E5AB',
           marginBottom: "6px",
           opacity: 0.6 + (i * 0.05),
           textShadow: line.includes('PASS') ? '0 0 5px rgba(74, 222, 128, 0.4)' : 'none',
@@ -63,8 +63,8 @@ const RunningCode = () => {
         </div>
       ))}
       <div style={{ display: "flex", alignItems: "center", marginTop: "4px" }}>
-        <span style={{ color: "#60a5fa", marginRight: "8px" }}>&gt;</span>
-        <div style={{ width: "8px", height: "14px", background: "#fff", animation: "blink 1s step-end infinite" }} />
+        <span style={{ color: "#D4AF37", marginRight: "8px" }}>&gt;</span>
+        <div style={{ width: "8px", height: "14px", background: "#D4AF37", animation: "blink 1s step-end infinite" }} />
       </div>
     </div>
   );
@@ -92,10 +92,10 @@ export default function About() {
                 overflowWrap: "normal",
                 color: "#e5e7eb"
               }}>
-                I am a passionate <span style={{ color: "#38bdf8", fontWeight: "800" }}>Quality Assurance Engineer</span> with
-                hands-on experience in <span style={{ color: "#38bdf8", fontWeight: "800" }}>manual testing</span>,
-                <span style={{ color: "#38bdf8", fontWeight: "800" }}> automation testing</span>, and
-                <span style={{ color: "#38bdf8", fontWeight: "800" }}> API validation</span>. I focus on delivering reliable and
+                I am a passionate <span style={{ color: "#D4AF37", fontWeight: "800" }}>Quality Assurance Engineer</span> with
+                hands-on experience in <span style={{ color: "#D4AF37", fontWeight: "800" }}>manual testing</span>,
+                <span style={{ color: "#D4AF37", fontWeight: "800" }}> automation testing</span>, and
+                <span style={{ color: "#D4AF37", fontWeight: "800" }}> API validation</span>. I focus on delivering reliable and
                 high quality software by identifying defects early, improving test coverage, and supporting stable releases through
                 effective testing strategies.
               </div>
@@ -108,10 +108,10 @@ export default function About() {
 
             <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
               {[
-                { label: "Manual Testing", text: "End-to-End, Regression, and Exploratory.", color: "#38bdf8" },
-                { label: "API Testing", text: "Functional and Schema validation of REST APIs.", color: "#6366f1" },
-                { label: "Compatibility", text: "Responsive Web Design (RWD) and Cross-Platform testing.", color: "#a78bfa" },
-                { label: "Defect Management", text: "Root Cause Analysis (RCA) and Bug Life Cycle tracking.", color: "#2dd4bf" }
+                {label: "Manual Testing", text: "End-to-End, Regression, and Exploratory.", color: "#D4AF37" },
+                { label: "API Testing", text: "Functional and Schema validation of REST APIs.", color: "#F3E5AB" },
+                { label: "Compatibility", text: "Responsive Web Design (RWD) and Cross-Platform testing.", color: "#C5A028" },
+                { label: "Defect Management", text: "Root Cause Analysis (RCA) and Bug Life Cycle tracking.", color: "#E6C35C" }
               ].map((item, i) => (
                 <div
                   key={i}
@@ -182,11 +182,11 @@ export default function About() {
 
               <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
                 {[
-                  { category: "Automation", tools: ["Selenium WebDriver", "TestNG"], color: "#38bdf8" },
-                  { category: "API Testing", tools: ["Postman"], color: "#6366f1" },
-                  { category: "Performance Testing", tools: ["JMeter"], color: "#a78bfa" },
-                  { category: "Languages", tools: ["Java", "SQL"], color: "#2dd4bf" },
-                  { category: "Project Tools", tools: ["Jira", "Azure DevOps", "Taiga"], color: "#f472b6" }
+                  { category: "Automation", tools: ["Selenium WebDriver", "TestNG"], color: "#D4AF37" },
+                  { category: "API Testing", tools: ["Postman"], color: "#F3E5AB" },
+                  { category: "Performance Testing", tools: ["JMeter"], color: "#C5A028" },
+                  { category: "Languages", tools: ["Java", "SQL"], color: "#E6C35C" },
+                  { category: "Project Tools", tools: ["Jira", "Azure DevOps", "Taiga"], color: "#EAA850" }
                 ].map((group, idx) => (
                   <div key={idx}>
                     <strong style={{ color: group.color, display: "block", marginBottom: "8px" }}>{group.category}</strong>
@@ -247,8 +247,8 @@ export default function About() {
       <div style={{ marginTop: "80px", marginBottom: "20px" }}>
         <div className="fade-scale-up philosophy-quote-card" style={{
           ...glassCardLarge,
-          background: "rgba(56, 189, 248, 0.05)",
-          borderLeft: "4px solid #38bdf8",
+          background: "rgba(212, 175, 55, 0.03)",
+          borderLeft: "4px solid #D4AF37",
           borderRadius: "0 20px 20px 0",
           textAlign: "center",
           position: "relative"
@@ -258,11 +258,11 @@ export default function About() {
             top: "10px",
             left: "20px",
             fontSize: "60px",
-            color: "rgba(56, 189, 248, 0.2)",
+            color: "rgba(212, 175, 55, 0.2)",
             fontFamily: "serif",
             lineHeight: 1
           }}>“</span>
-          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "15px", color: "#38bdf8" }}>My QA Philosophy</h2>
+          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "15px", color: "#D4AF37" }}>My QA Philosophy</h2>
           <p style={{ fontSize: "18px", color: "#e2e8f0", lineHeight: "1.8", fontStyle: "italic" }}>
             "Quality is not just about finding defects — it’s about building confidence in every release. My goal is to ensure software is reliable, scalable, and delivers a seamless experience for every user. Great software is built when quality becomes everyone’s responsibility — QA ensures that promise is delivered."
           </p>
@@ -271,7 +271,7 @@ export default function About() {
             bottom: "-10px",
             right: "20px",
             fontSize: "60px",
-            color: "rgba(56, 189, 248, 0.2)",
+            color: "rgba(212, 175, 55, 0.2)",
             fontFamily: "serif",
             lineHeight: 1
           }}>”</span>
@@ -291,32 +291,32 @@ export default function About() {
           <div className="timeline-container">
             {[
               {
-                step: "1️⃣",
+                step: "1",
                 title: "Requirement Understanding",
                 desc: "Analyze business requirements, user flows, and technical documentation to identify testing scope, edge cases, and potential risk areas."
               },
               {
-                step: "2️⃣",
+                step: "2",
                 title: "Test Planning & Scenario Design",
-                desc: "Design detailed test scenarios, test cases, and test data aligned with functional requirements and business workflows."
+                desc: "Design detailed test scenarios, test data, and test plans aligned with functional requirements and business workflows."
               },
               {
-                step: "3️⃣",
+                step: "3",
                 title: "Test Execution",
                 desc: "Execute functional, regression, integration, and API tests across environments to validate system behavior and ensure expected results."
               },
               {
-                step: "4️⃣",
+                step: "4",
                 title: "Defect Identification & Reporting",
                 desc: "Log and track defects with clear reproduction steps, severity analysis, and collaborate with developers for faster resolution."
               },
               {
-                step: "5️⃣",
+                step: "5",
                 title: "Automation & Optimization",
                 desc: "Automate critical workflows using Selenium WebDriver and TestNG to improve regression efficiency and testing coverage."
               },
               {
-                step: "6️⃣",
+                step: "6",
                 title: "Release Validation",
                 desc: "Support SIT and UAT phases, validate fixes, perform regression testing, and ensure stable and production-ready releases."
               }
@@ -327,7 +327,7 @@ export default function About() {
                   <div className="timeline-line"></div>
                 </div>
                 <div className="timeline-content glass-hover">
-                  <h3 style={{ color: "#38bdf8", marginBottom: "8px", fontSize: "18px" }}>{item.title}</h3>
+                  <h3 style={{ color: "#D4AF37", marginBottom: "8px", fontSize: "18px" }}>{item.title}</h3>
                   <p style={{ color: "#cbd5e1", fontSize: "14px", lineHeight: "1.5" }}>{item.desc}</p>
                 </div>
               </div>
@@ -340,7 +340,7 @@ export default function About() {
       <div style={{ marginTop: "60px" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px" }}>QA Impact & Contributions</h2>
-          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #38bdf8, #6366f1, transparent)", width: "30%", margin: "0 auto" }} />
+          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #D4AF37, #AA7C11, transparent)", width: "30%", margin: "0 auto" }} />
         </div>
 
         <div style={{
@@ -385,7 +385,7 @@ export default function About() {
               backdropFilter: "blur(10px)",
               padding: "25px",
               borderRadius: "16px",
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              border: "1px solid rgba(212, 175, 55, 0.3)",
               display: "flex",
               alignItems: "flex-start",
               gap: "15px",
@@ -395,8 +395,8 @@ export default function About() {
               className="reveal impact-card"
             >
               <div style={{
-                background: "rgba(56, 189, 248, 0.1)",
-                color: "#38bdf8",
+                background: "rgba(212, 175, 55, 0.1)",
+                color: "#D4AF37",
                 borderRadius: "50%",
                 width: "30px",
                 height: "30px",
@@ -408,7 +408,7 @@ export default function About() {
               }}>✔</div>
               <p style={{ lineHeight: "1.6", color: "#e2e8f0", fontSize: "15px" }}>
                 {impact.text}
-                <strong style={{ color: "#38bdf8", fontWeight: "600", padding: "0 4px" }}>{impact.highlight}</strong>
+                <strong style={{ color: "#D4AF37", fontWeight: "600", padding: "0 4px" }}>{impact.highlight}</strong>
                 {impact.rest}
               </p>
             </div>
@@ -420,7 +420,7 @@ export default function About() {
       <div style={{ marginTop: "60px" }}>
         <div style={{ ...glassCardLarge, textAlign: "center", paddingBottom: "20px" }} className="glass-card-mobile-fix">
           <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>KEY ACHIEVEMENTS</h2>
-          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #38bdf8, #6366f1, transparent)", width: "100%", marginBottom: "30px" }} />
+          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #D4AF37, #AA7C11, transparent)", width: "100%", marginBottom: "30px" }} />
 
           <div style={{
             display: "grid",
@@ -455,7 +455,7 @@ export default function About() {
             download="BALA_SUBRA_MANIYAN_S_R_QA_Resume.pdf"
             style={{ textDecoration: "none" }}
           >
-            <button style={downloadBtn}>
+            <button className="animated-btn" style={{ marginTop: "20px" }}>
               Download Resume ↓
             </button>
           </a>
@@ -470,7 +470,7 @@ export default function About() {
 const pageContainer = {
   paddingTop: "120px",
   minHeight: "100vh",
-  background: "#0f172a",
+  background: "transparent",
   padding: "clamp(100px, 12vh, 140px) clamp(10px, 4vw, 40px) 40px clamp(10px, 4vw, 40px)",
   color: "white"
 };
@@ -520,10 +520,14 @@ const badgeContainer = {
 };
 
 const badge = {
-  background: "#1e293b",
+  background: "transparent",
+  border: "1px solid rgba(212, 175, 55, 0.25)",
+  color: "#FFFFFF",
   padding: "8px 15px",
   borderRadius: "20px",
-  fontSize: "14px"
+  fontSize: "14px",
+  transition: "all 0.3s ease",
+  display: "inline-block"
 };
 
 const bottomGrid = {
@@ -533,28 +537,20 @@ const bottomGrid = {
 };
 
 const resumeCard = {
-  background: "#8b5cf6", // Matches image solid purple
+  background: "linear-gradient(135deg, #121212, #221B0B)",
+  border: "1px solid rgba(212, 175, 55, 0.3)",
+  boxShadow: "0 10px 30px rgba(212, 175, 55, 0.1)",
   padding: "40px",
   borderRadius: "20px",
   textAlign: "center"
 };
 
-const downloadBtn = {
-  marginTop: "20px",
-  padding: "12px 25px",
-  background: "white",
-  color: "#6d28d9",
-  border: "none",
-  borderRadius: "8px",
-  cursor: "pointer",
-  fontWeight: "bold"
-};
 
 const achievementItem = {
   background: "rgba(255,255,255,0.03)",
   padding: "20px",
   borderRadius: "12px",
-  borderLeft: "4px solid #38bdf8",
+  borderLeft: "4px solid #D4AF37",
   fontSize: "15px",
   lineHeight: "1.6"
 };

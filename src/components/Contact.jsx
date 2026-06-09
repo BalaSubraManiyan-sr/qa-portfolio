@@ -58,12 +58,12 @@ export default function Contact() {
       <Particles
         init={particlesInit}
         options={{
-          background: { color: "#0f172a" },
+          background: { color: "#0A0A0A" },
           particles: {
             number: { value: 60 },
             size: { value: 2 },
             move: { speed: 1 },
-            links: { enable: true, color: "#38bdf8" }
+            links: { enable: true, color: "#D4AF37" }
           }
         }}
         style={{ position: "absolute" }}
@@ -167,7 +167,7 @@ const pageContainer = {
   minHeight: "100vh",
   position: "relative",
   overflow: "hidden",
-  background: "#0f172a",
+  background: "transparent",
   color: "white"
 };
 
@@ -184,7 +184,7 @@ const title = {
 };
 
 const gradientText = {
-  background: "linear-gradient(90deg, #38bdf8, #a78bfa)",
+  background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent"
 };
@@ -207,8 +207,11 @@ const formStyle = {
 const inputStyle = {
   padding: "14px",
   borderRadius: "10px",
-  border: "none",
-  outline: "none"
+  background: "rgba(10, 10, 10, 0.8)",
+  border: "1px solid rgba(212, 175, 55, 0.3)",
+  color: "white",
+  outline: "none",
+  transition: "all 0.3s ease"
 };
 
 const iconContainer = {
@@ -242,9 +245,9 @@ const popupOverlay = {
 };
 
 const squarePopup = {
-  background: "#1e293b",
-  border: "2px solid #22c55e",
-  boxShadow: "0 0 30px rgba(34, 197, 94, 0.3)",
+  background: "#121212",
+  border: "2px solid #D4AF37",
+  boxShadow: "0 0 30px rgba(212, 175, 55, 0.3)",
   padding: "40px",
   borderRadius: "15px",
   textAlign: "center",

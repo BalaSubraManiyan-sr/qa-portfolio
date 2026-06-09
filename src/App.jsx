@@ -17,13 +17,13 @@ import Contact from "./components/Contact";
 
 /* ROUTE BACKGROUNDS */
 const backgrounds = {
-  "/": "linear-gradient(135deg, #0f172a, #1e293b)",
-  "/about": "linear-gradient(135deg, #1e3a8a, #312e81)",
-  "/projects": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
-  "/experience": "linear-gradient(135deg, #0f0c29, #302b63)",
-  "/qa-showcase": "linear-gradient(135deg, #0f172a, #111827)",
-  "/approach": "linear-gradient(135deg, #141e30, #243b55)",
-  "/contact": "linear-gradient(135deg, #0f172a, #134e4a)"
+  "/": "linear-gradient(135deg, #0A0A0A, #121212)",
+  "/about": "linear-gradient(135deg, #0A0A0A, #14120E)",
+  "/projects": "linear-gradient(135deg, #0A0A0A, #121212)",
+  "/experience": "linear-gradient(135deg, #0A0A0A, #15130F)",
+  "/qa-showcase": "linear-gradient(135deg, #0A0A0A, #121212)",
+  "/approach": "linear-gradient(135deg, #0A0A0A, #161410)",
+  "/contact": "linear-gradient(135deg, #0A0A0A, #121212)"
 };
 
 /* LOADER */
@@ -68,7 +68,7 @@ function AnimatedRoutes() {
               minHeight: "100vh",
               background:
                 backgrounds[location.pathname] ||
-                "linear-gradient(135deg, #0f172a, #1e293b)",
+                "linear-gradient(135deg, #0A0A0A, #121212)",
               transition: "background 0.8s ease"
             }}
           >
@@ -94,7 +94,10 @@ function App() {
       <Navbar />
       <AnimatedRoutes />
       <footer className="footer-global">
-        © 2026 Bala Subra Maniyan S R | Quality Assurance Engineer
+        <span className="footer-copyright">© 2026 </span>
+        <span className="footer-name">Bala Subra Maniyan S R</span>
+        <span className="footer-divider"> | </span>
+        <span className="footer-profession">Quality Assurance Engineer</span>
       </footer>
     </>
   );

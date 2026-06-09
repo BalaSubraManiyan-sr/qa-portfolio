@@ -208,7 +208,7 @@ export default function Projects() {
               </div>
             )}
             <h2 style={{ marginBottom: "10px", fontSize: "20px", lineHeight: "1.3", color: "white" }}>{selectedProject.title}</h2>
-            <p style={{ opacity: 0.8, marginBottom: "25px", color: "#38bdf8" }}>{selectedProject.domain}</p>
+            <p style={{ opacity: 0.8, marginBottom: "25px", color: "#D4AF37" }}>{selectedProject.domain}</p>
             <ul style={{ ...bulletList, marginTop: "0" }}>
               {selectedProject.points.map((point, i) => (
                 <li key={i} style={{ marginBottom: "15px", lineHeight: "1.6" }}>{point}</li>
@@ -227,7 +227,7 @@ export default function Projects() {
 const pageContainer = {
   paddingTop: "120px",
   padding: "120px 40px 40px 40px",
-  background: "#0f172a",
+  background: "transparent",
   color: "white",
   minHeight: "100vh"
 };
@@ -271,8 +271,8 @@ const modalKeyframes = `
 
   .reveal:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.25);
+    border-color: rgba(212, 175, 55, 0.45);
   }
 `;
 
@@ -327,7 +327,7 @@ const modalOverlay = {
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: "rgba(15, 23, 42, 0.95)",
+  backgroundColor: "rgba(10, 10, 10, 0.96)",
   backdropFilter: "blur(10px)",
   display: "flex",
   justifyContent: "center",
@@ -337,14 +337,14 @@ const modalOverlay = {
 };
 
 const modalContent = {
-  background: "#1e293b",
+  background: "#121212",
   padding: "clamp(20px, 5vw, 40px)",
   borderRadius: "20px",
   maxWidth: "800px",
   width: "95%",
   position: "relative",
-  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
+  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15)",
+  border: "1px solid rgba(212, 175, 55, 0.3)",
   boxSizing: "border-box",
   maxHeight: "90vh",
   overflowY: "auto"
@@ -354,9 +354,9 @@ const modalCloseBtn = {
   position: "absolute",
   top: "15px",
   right: "15px",
-  background: "rgba(0, 0, 0, 0.6)",
-  border: "1px solid rgba(255, 255, 255, 0.3)",
-  color: "white",
+  background: "rgba(10, 10, 10, 0.8)",
+  border: "1px solid #D4AF37",
+  color: "#D4AF37",
   fontSize: "24px",
   cursor: "pointer",
   lineHeight: "36px",

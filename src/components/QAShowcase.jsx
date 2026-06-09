@@ -18,8 +18,8 @@ export default function QAShowcase() {
             {/* Bug Tracking Dashboard */}
             <div style={tagStyle} className="premium-glow-card">Defect Summary Dashboard</div>
             <div style={dashboardGrid}>
-                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #3b82f6", "--glow-rgb": "59 130 246" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(59, 130, 246, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                    <div style={{ ...dashboardNumber, color: "#93c5fd" }}>2</div>
+                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #D4AF37", "--glow-rgb": "212 175 55" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(212, 175, 55, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                    <div style={{ ...dashboardNumber, color: "#F3E5AB" }}>2</div>
                     <div style={dashboardLabel}>Open Bugs</div>
                 </motion.div>
                 <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #10b981", "--glow-rgb": "16 185 129" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(16, 185, 129, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
@@ -44,7 +44,7 @@ export default function QAShowcase() {
                 <motion.div
                     style={bugCard}
                     className="premium-glow-card"
-                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(59, 130, 246, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(59, 130, 246, 0.35)" }}
+                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(212, 175, 55, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     {/* Header Section */}
@@ -58,9 +58,9 @@ export default function QAShowcase() {
                             <p style={{ ...environmentText, marginTop: "4px" }}>Reported By: Bala Subra Maniyan</p>
                         </div>
                         <div style={badgesContainer}>
-                            <span style={{ ...badgeBase, background: "rgba(239, 68, 68, 0.2)", color: "#fca5a5", border: "1px solid rgba(239, 68, 68, 0.5)" }}>Severity: High</span>
-                            <span style={{ ...badgeBase, background: "rgba(249, 115, 22, 0.2)", color: "#fdba74", border: "1px solid rgba(249, 115, 22, 0.5)" }}>Priority: High</span>
-                            <span style={{ ...badgeBase, background: "rgba(59, 130, 246, 0.2)", color: "#93c5fd", border: "1px solid rgba(59, 130, 246, 0.5)" }}>Status: Open</span>
+                             <span style={{ ...badgeBase, background: "rgba(239, 68, 68, 0.2)", color: "#fca5a5", border: "1px solid rgba(239, 68, 68, 0.5)" }}>Severity: High</span>
+                             <span style={{ ...badgeBase, background: "rgba(249, 115, 22, 0.2)", color: "#fdba74", border: "1px solid rgba(249, 115, 22, 0.5)" }}>Priority: High</span>
+                             <span style={{ ...badgeBase, background: "rgba(212, 175, 55, 0.15)", color: "#D4AF37", border: "1px solid rgba(212, 175, 55, 0.4)" }}>Status: Open</span>
                         </div>
                     </div>
 
@@ -84,14 +84,14 @@ export default function QAShowcase() {
 
                         <div style={detailColumn}>
                             <div style={resultBox}>
-                                <h3 style={{ ...sectionTitle, color: "#4ade80" }}>Expected Result</h3>
+                                <h3 style={{ ...sectionTitle, color: "#D4AF37" }}>Expected Result</h3>
                                 <p style={paragraphText}>
                                     User should be logged into the dashboard.
                                 </p>
                             </div>
 
                             <div style={resultBox}>
-                                <h3 style={{ ...sectionTitle, color: "#f87171" }}>Actual Result</h3>
+                                <h3 style={{ ...sectionTitle, color: "#D4AF37" }}>Actual Result</h3>
                                 <p style={paragraphText}>
                                     Login button does not respond.
                                 </p>
@@ -99,7 +99,7 @@ export default function QAShowcase() {
 
 
                             <div style={{ ...resultBox, background: "transparent", border: "none", paddingLeft: 0 }}>
-                                <h3 style={{ ...sectionTitle, color: "#60a5fa" }}>Screenshot / Link</h3>
+                                 <h3 style={{ ...sectionTitle, color: "#D4AF37" }}>Screenshot / Link</h3>
                                 <p style={paragraphText}>
                                     <a href="#" onClick={(e) => e.preventDefault()} style={linkStyle}>🔗 Issue_recording_auth_flow.mp4</a>
                                 </p>
@@ -133,7 +133,7 @@ export default function QAShowcase() {
                 <motion.div
                     style={executionSummaryContainer}
                     className="premium-glow-card"
-                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(59, 130, 246, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(59, 130, 246, 0.35)" }}
+                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(212, 175, 55, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     <div style={executionDetails}>
@@ -143,7 +143,7 @@ export default function QAShowcase() {
                     </div>
 
                     <div style={executionDetails}>
-                        <p style={{ ...detailText, color: "#60a5fa" }}><strong>Total Test Cases :</strong> 3</p>
+                        <p style={{ ...detailText, color: "#D4AF37" }}><strong>Total Test Cases :</strong> 3</p>
                         <p style={{ ...detailText, color: "#4ade80" }}><strong>Passed :</strong> 3</p>
                         <p style={{ ...detailText, color: "#f87171" }}><strong>Failed :</strong> 0</p>
                         <p style={{ ...detailText, color: "#fb923c" }}><strong>Blocked :</strong> 0</p>
@@ -155,7 +155,7 @@ export default function QAShowcase() {
                 <motion.div
                     style={{ ...tableContainer, width: "100%", boxSizing: "border-box" }}
                     className="premium-glow-card"
-                    whileHover={{ scale: 1.005, boxShadow: "0 0 35px rgba(59, 130, 246, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(59, 130, 246, 0.35)" }}
+                    whileHover={{ scale: 1.005, boxShadow: "0 0 35px rgba(212, 175, 55, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     <table style={{ ...tableStyle, minWidth: "1500px" }}>
@@ -257,7 +257,7 @@ export default function QAShowcase() {
                         key={index}
                         style={toolCard}
                         className="premium-glow-card"
-                        whileHover={{ y: -8, boxShadow: "0 0 30px rgba(59, 130, 246, 0.25), 0 15px 35px rgba(0, 0, 0, 0.3)", borderColor: "rgba(59, 130, 246, 0.45)" }}
+                        whileHover={{ y: -8, boxShadow: "0 0 30px rgba(212, 175, 55, 0.25), 0 15px 35px rgba(0, 0, 0, 0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                         <div style={toolIconContainer}>
@@ -289,7 +289,7 @@ export default function QAShowcase() {
 
 const pageContainer = {
     paddingTop: "120px",
-    background: "#0f172a",
+    background: "transparent",
     padding: "120px 40px 60px 40px",
     minHeight: "100vh",
     color: "white",
@@ -303,7 +303,7 @@ const mainTitle = {
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: "10px",
-    background: "linear-gradient(90deg, #60a5fa, #a855f7, #ec4899)",
+    background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     textShadow: "0px 2px 10px rgba(0,0,0,0.2)"
@@ -345,8 +345,8 @@ const dashboardGrid = {
 };
 
 const dashboardCardBase = {
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    background: "rgba(18, 18, 18, 0.75)",
+    border: "1px solid rgba(212, 175, 55, 0.15)",
     borderRadius: "16px",
     padding: "20px 30px",
     display: "flex",
@@ -383,8 +383,8 @@ const cardWrapper = {
 };
 
 const tagStyle = {
-    background: "#3b82f6",
-    color: "white",
+    background: "#D4AF37",
+    color: "#0A0A0A",
     padding: "6px 16px",
     borderRadius: "20px",
     fontSize: "14px",
@@ -397,8 +397,8 @@ const tagStyle = {
 };
 
 const bugCard = {
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    background: "rgba(18, 18, 18, 0.75)",
+    border: "1px solid rgba(212, 175, 55, 0.15)",
     borderRadius: "20px",
     padding: "40px",
     width: "100%",
@@ -504,7 +504,7 @@ const resultBox = {
 };
 
 const linkStyle = {
-    color: "#60a5fa",
+    color: "#D4AF37",
     textDecoration: "none",
     display: "inline-flex",
     alignItems: "center",
@@ -512,8 +512,8 @@ const linkStyle = {
 };
 
 const tableContainer = {
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    background: "rgba(18, 18, 18, 0.75)",
+    border: "1px solid rgba(212, 175, 55, 0.15)",
     borderRadius: "20px",
     padding: "30px",
     overflowX: "auto"
@@ -555,8 +555,8 @@ const executionSummaryContainer = {
     flexWrap: "wrap",
     width: "100%",
     padding: "20px 30px",
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    background: "rgba(18, 18, 18, 0.75)",
+    border: "1px solid rgba(212, 175, 55, 0.15)",
     borderRadius: "15px",
     marginBottom: "20px",
     gap: "20px"
@@ -586,8 +586,8 @@ const toolsGrid = {
 };
 
 const toolCard = {
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    background: "rgba(18, 18, 18, 0.75)",
+    border: "1px solid rgba(212, 175, 55, 0.15)",
     borderRadius: "20px",
     padding: "30px",
     display: "flex",
@@ -621,15 +621,15 @@ const toolName = {
 
 const toolBadge = {
     display: "inline-block",
-    background: "rgba(59, 130, 246, 0.15)",
-    color: "#93c5fd",
+    background: "rgba(212, 175, 55, 0.12)",
+    color: "#D4AF37",
     padding: "4px 10px",
     borderRadius: "6px",
     fontSize: "12px",
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: "0.5px",
-    border: "1px solid rgba(59, 130, 246, 0.3)",
+    border: "1px solid rgba(212, 175, 55, 0.3)",
     marginBottom: "15px"
 };
 

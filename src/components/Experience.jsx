@@ -4,6 +4,12 @@ const expKeyframes = `
     100% { opacity: 1; transform: translateY(0); }
   }
 
+  .experience-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.45) !important;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+  }
+
   @media (max-width: 768px) {
     .experience-card {
       flex-direction: column !important;
@@ -115,7 +121,7 @@ const pageContainer = {
   paddingTop: "120px",
   padding: "120px 40px",
   minHeight: "100vh",
-  background: "#0f172a",
+  background: "transparent",
   color: "white"
 };
 
@@ -139,7 +145,7 @@ const timelineContainer = {
 const verticalLine = {
   width: "3px",
   height: "70px",
-  background: "linear-gradient(to bottom, #38bdf8, #8b5cf6)",
+  background: "linear-gradient(to bottom, #D4AF37, #AA7C11)",
   borderRadius: "2px",
   opacity: 0,
   animation: "expFadeSlideUp 0.6s ease-out 0.15s forwards"
@@ -148,11 +154,12 @@ const verticalLine = {
 const card = {
   display: "flex",
   gap: "25px",
-  background: "rgba(255,255,255,0.05)",
+  background: "rgba(18, 18, 18, 0.75)",
+  border: "1px solid rgba(212, 175, 55, 0.15)",
   padding: "35px",
   borderRadius: "20px",
   backdropFilter: "blur(10px)",
-  transition: "0.3s",
+  transition: "all 0.3s ease",
   alignItems: "flex-start",
   width: "100%"
 };

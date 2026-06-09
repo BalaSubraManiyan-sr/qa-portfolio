@@ -2,12 +2,12 @@ import { FaClipboardCheck, FaBug, FaRocket } from "react-icons/fa";
 
 const approachStyles = `
   .approach-card {
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.15);
   }
   .approach-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(56, 189, 248, 0.6);
-    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
     filter: brightness(1.15);
   }
 `;
@@ -80,7 +80,7 @@ const pageContainer = {
   paddingTop: "120px",
   padding: "120px 40px",
   minHeight: "100vh",
-  background: "#0f172a",
+  background: "transparent",
   color: "white"
 };
 
@@ -91,7 +91,7 @@ const title = {
 };
 
 const gradientText = {
-  background: "linear-gradient(90deg, #38bdf8, #a78bfa)",
+  background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent"
 };
@@ -134,10 +134,10 @@ const iconStyle = {
 };
 
 const phase1 =
-  "linear-gradient(135deg, #1e3a8a, #3b82f6)";
+  "linear-gradient(135deg, #121212, #261F10)";
 
 const phase2 =
-  "linear-gradient(135deg, #4c1d95, #6366f1)";
+  "linear-gradient(135deg, #121212, #302612)";
 
 const phase3 =
-  "linear-gradient(135deg, #0891b2, #0ea5e9)";
+  "linear-gradient(135deg, #121212, #3B2E15)";
