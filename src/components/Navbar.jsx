@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const navLinks = [
   { to: "/", label: "Home", end: true },
@@ -11,7 +12,7 @@ const navLinks = [
   { to: "/contact", label: "Contact" }
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,30 +36,41 @@ export default function Navbar() {
         <span className="nav-branding-text">S R Bala Subra Maniyan</span>
       </div>
 
-      {/* Desktop Menu */}
-      <div style={menuStyle} className="desktop-menu">
-        {navLinks.map(({ to, label, end }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={end}
-            style={({ isActive }) => ({
-              ...linkBase,
-              ...(isActive ? activeLink : {})
-            })}
-          >
-            {label}
-          </NavLink>
-        ))}
-      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+        {/* Desktop Menu */}
+        <div style={menuStyle} className="desktop-menu">
+          {navLinks.map(({ to, label, end }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={end}
+              style={({ isActive }) => ({
+                ...linkBase,
+                ...(isActive ? activeLink : {})
+              })}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </div>
 
-      {/* Mobile Toggle */}
-      <div
-        className="mobile-icon"
-        onClick={() => setIsOpen(!isOpen)}
-        style={mobileIconStyle}
-      >
-        {isOpen ? "✕" : "☰"}
+        {/* Theme Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          className="theme-toggle-btn"
+          aria-label="Toggle Theme"
+        >
+          {theme === "dark" ? <FiSun /> : <FiMoon />}
+        </button>
+
+        {/* Mobile Toggle */}
+        <div
+          className="mobile-icon"
+          onClick={() => setIsOpen(!isOpen)}
+          style={mobileIconStyle}
+        >
+          {isOpen ? "✕" : "☰"}
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -94,9 +106,9 @@ const navStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  background: "rgba(10, 10, 10, 0.75)",
+  background: "var(--navbar-bg)",
   backdropFilter: "blur(12px)",
-  borderBottom: "1px solid rgba(212, 175, 55, 0.15)",
+  borderBottom: "1px solid var(--border-gold)",
   zIndex: 1000
 };
 
@@ -107,7 +119,7 @@ const menuStyle = {
 };
 
 const linkBase = {
-  color: "#cbd5e1",
+  color: "var(--text-gray)",
   textDecoration: "none",
   position: "relative",
   paddingBottom: "4px",
@@ -116,18 +128,18 @@ const linkBase = {
 };
 
 const activeLink = {
-  background: "linear-gradient(90deg, #F3E5AB, #D4AF37)",
+  background: "var(--accent-gold-gradient)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   fontWeight: "700",
-  borderBottom: "2px solid #D4AF37",
+  borderBottom: "2px solid var(--accent-gold-text)",
   paddingBottom: "2px"
 };
 
 const mobileIconStyle = {
   display: "none", // Shown/hidden via CSS media queries in index.css
   fontSize: "32px",
-  color: "#D4AF37",
+  color: "var(--accent-gold-text)",
   cursor: "pointer",
   zIndex: 1005,
   userSelect: "none"
@@ -139,7 +151,7 @@ const mobileMenuOverlay = {
   left: 0,
   width: "100%",
   height: "100vh",
-  background: "#0A0A0A",
+  background: "var(--bg-dark)",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -150,7 +162,7 @@ const mobileMenuOverlay = {
 };
 
 const mobileLinkBase = {
-  color: "#cbd5e1",
+  color: "var(--text-gray)",
   textDecoration: "none",
   fontSize: "24px",
   fontWeight: "600",
@@ -158,6 +170,6 @@ const mobileLinkBase = {
 };
 
 const mobileActiveLink = {
-  color: "#D4AF37",
+  color: "var(--accent-gold-text)",
   transform: "scale(1.1)"
 };

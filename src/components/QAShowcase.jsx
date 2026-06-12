@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 export default function QAShowcase() {
     return (
         <div style={pageContainer}>
-            <h1 style={mainTitle}>Bug Report Showcase</h1>
+            <h1 style={mainTitle} className="qa-title">Bug Report Showcase</h1>
 
             <div style={introSection}>
                 <motion.div
                     style={introText}
+                    className="qa-intro-card"
                     whileHover={{ scale: 1.02, boxShadow: "0 15px 35px rgba(0,0,0,0.35)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -16,23 +17,23 @@ export default function QAShowcase() {
             </div>
 
             {/* Bug Tracking Dashboard */}
-            <div style={tagStyle} className="premium-glow-card">Defect Summary Dashboard</div>
+            <div style={tagStyle} className="premium-glow-card qa-tag-badge">Defect Summary Dashboard</div>
             <div style={dashboardGrid}>
-                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #D4AF37", "--glow-rgb": "212 175 55" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(212, 175, 55, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                    <div style={{ ...dashboardNumber, color: "#F3E5AB" }}>2</div>
-                    <div style={dashboardLabel}>Open Bugs</div>
+                <motion.div className="premium-glow-card qa-dashboard-card open-bugs" style={{ ...dashboardCardBase, borderTop: "4px solid var(--accent-gold)", "--glow-rgb": "var(--glow-rgb-val)" }} whileHover={{ y: -6, boxShadow: "0 0 25px var(--glow-gold), 0 12px 30px rgba(0,0,0,0.15)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                    <div style={{ ...dashboardNumber, color: "var(--accent-gold-hover)" }} className="qa-dashboard-number">2</div>
+                    <div style={dashboardLabel} className="qa-dashboard-label">Open Bugs</div>
                 </motion.div>
-                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #10b981", "--glow-rgb": "16 185 129" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(16, 185, 129, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                    <div style={{ ...dashboardNumber, color: "#6ee7b7" }}>5</div>
-                    <div style={dashboardLabel}>Closed Bugs</div>
+                <motion.div className="premium-glow-card qa-dashboard-card closed-bugs" style={{ ...dashboardCardBase, borderTop: "4px solid #10b981", "--glow-rgb": "16 185 129" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(16, 185, 129, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                    <div style={{ ...dashboardNumber, color: "#6ee7b7" }} className="qa-dashboard-number">5</div>
+                    <div style={dashboardLabel} className="qa-dashboard-label">Closed Bugs</div>
                 </motion.div>
-                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #ef4444", "--glow-rgb": "239 68 68" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(239, 68, 68, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                    <div style={{ ...dashboardNumber, color: "#fca5a5" }}>1</div>
-                    <div style={dashboardLabel}>High Severity</div>
+                <motion.div className="premium-glow-card qa-dashboard-card high-severity" style={{ ...dashboardCardBase, borderTop: "4px solid #ef4444", "--glow-rgb": "239 68 68" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(239, 68, 68, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                    <div style={{ ...dashboardNumber, color: "#fca5a5" }} className="qa-dashboard-number">1</div>
+                    <div style={dashboardLabel} className="qa-dashboard-label">High Severity</div>
                 </motion.div>
-                <motion.div className="premium-glow-card" style={{ ...dashboardCardBase, borderTop: "4px solid #f59e0b", "--glow-rgb": "245 158 11" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(245, 158, 11, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                    <div style={{ ...dashboardNumber, color: "#fcd34d" }}>2</div>
-                    <div style={dashboardLabel}>Medium Severity</div>
+                <motion.div className="premium-glow-card qa-dashboard-card medium-severity" style={{ ...dashboardCardBase, borderTop: "4px solid #f59e0b", "--glow-rgb": "245 158 11" }} whileHover={{ y: -6, boxShadow: "0 0 25px rgba(245, 158, 11, 0.25), 0 12px 30px rgba(0,0,0,0.3)" }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                    <div style={{ ...dashboardNumber, color: "#fcd34d" }} className="qa-dashboard-number">2</div>
+                    <div style={dashboardLabel} className="qa-dashboard-label">Medium Severity</div>
                 </motion.div>
             </div>
 
@@ -43,24 +44,24 @@ export default function QAShowcase() {
 
                 <motion.div
                     style={bugCard}
-                    className="premium-glow-card"
-                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(212, 175, 55, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
+                    className="premium-glow-card qa-bug-card"
+                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px var(--glow-gold), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "var(--border-gold-hover)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     {/* Header Section */}
                     <div style={cardHeader}>
                         <div>
                             <span style={bugId}>Bug ID: QA-001</span>
-                            <h2 style={bugTitle}>Login Button Not Responding</h2>
-                            <p style={environmentText}>Environment: Web Application | Mobile</p>
-                            <p style={{ ...environmentText, marginTop: "4px" }}>Type: FE</p>
-                            <p style={{ ...environmentText, marginTop: "4px" }}>Assigned: Frontend Team</p>
-                            <p style={{ ...environmentText, marginTop: "4px" }}>Reported By: Bala Subra Maniyan</p>
+                            <h2 style={bugTitle} className="qa-bug-title">Login Button Not Responding</h2>
+                            <p style={environmentText} className="qa-env-text">Environment: Web Application | Mobile</p>
+                            <p style={{ ...environmentText, marginTop: "4px" }} className="qa-env-text">Type: FE</p>
+                            <p style={{ ...environmentText, marginTop: "4px" }} className="qa-env-text">Assigned: Frontend Team</p>
+                            <p style={{ ...environmentText, marginTop: "4px" }} className="qa-env-text">Reported By: Bala Subra Maniyan</p>
                         </div>
                         <div style={badgesContainer}>
-                             <span style={{ ...badgeBase, background: "rgba(239, 68, 68, 0.2)", color: "#fca5a5", border: "1px solid rgba(239, 68, 68, 0.5)" }}>Severity: High</span>
-                             <span style={{ ...badgeBase, background: "rgba(249, 115, 22, 0.2)", color: "#fdba74", border: "1px solid rgba(249, 115, 22, 0.5)" }}>Priority: High</span>
-                             <span style={{ ...badgeBase, background: "rgba(212, 175, 55, 0.15)", color: "#D4AF37", border: "1px solid rgba(212, 175, 55, 0.4)" }}>Status: Open</span>
+                             <span style={{ ...badgeBase, background: "rgba(239, 68, 68, 0.2)", color: "#fca5a5", border: "1px solid rgba(239, 68, 68, 0.5)" }} className="qa-badge-severity">Severity: High</span>
+                             <span style={{ ...badgeBase, background: "rgba(249, 115, 22, 0.2)", color: "#fdba74", border: "1px solid rgba(249, 115, 22, 0.5)" }} className="qa-badge-priority">Priority: High</span>
+                             <span style={{ ...badgeBase, background: "var(--tool-badge-bg)", color: "var(--accent-gold-text)", border: "1px solid var(--tool-badge-border)" }} className="qa-badge-status">Status: Open</span>
                         </div>
                     </div>
 
@@ -70,12 +71,12 @@ export default function QAShowcase() {
                     <div style={detailsGrid}>
                         <div style={detailColumn}>
                             <h3 style={sectionTitle}>Description</h3>
-                            <p style={paragraphText}>
+                            <p style={paragraphText} className="qa-bug-desc">
                                 The login button on the login page does not respond after entering valid credentials. The application does not authenticate the user or redirect to the dashboard, and no error message is displayed.
                             </p>
 
                             <h3 style={sectionTitle}>Steps to Reproduce</h3>
-                            <ol style={orderedList}>
+                            <ol style={orderedList} className="qa-bug-desc">
                                 <li style={listItem}>Open login page</li>
                                 <li style={listItem}>Enter valid credentials</li>
                                 <li style={listItem}>Click login button</li>
@@ -83,25 +84,25 @@ export default function QAShowcase() {
                         </div>
 
                         <div style={detailColumn}>
-                            <div style={resultBox}>
-                                <h3 style={{ ...sectionTitle, color: "#D4AF37" }}>Expected Result</h3>
-                                <p style={paragraphText}>
+                            <div style={resultBox} className="qa-result-card">
+                                <h3 style={{ ...sectionTitle, color: "var(--accent-gold-text)" }}>Expected Result</h3>
+                                <p style={paragraphText} className="qa-bug-desc">
                                     User should be logged into the dashboard.
                                 </p>
                             </div>
 
-                            <div style={resultBox}>
-                                <h3 style={{ ...sectionTitle, color: "#D4AF37" }}>Actual Result</h3>
-                                <p style={paragraphText}>
+                            <div style={resultBox} className="qa-result-card">
+                                <h3 style={{ ...sectionTitle, color: "var(--accent-gold-text)" }}>Actual Result</h3>
+                                <p style={paragraphText} className="qa-bug-desc">
                                     Login button does not respond.
                                 </p>
                             </div>
 
 
                             <div style={{ ...resultBox, background: "transparent", border: "none", paddingLeft: 0 }}>
-                                 <h3 style={{ ...sectionTitle, color: "#D4AF37" }}>Screenshot / Link</h3>
+                                 <h3 style={{ ...sectionTitle, color: "var(--accent-gold-text)" }}>Screenshot / Link</h3>
                                 <p style={paragraphText}>
-                                    <a href="#" onClick={(e) => e.preventDefault()} style={linkStyle}>🔗 Issue_recording_auth_flow.mp4</a>
+                                    <a href="#" onClick={(e) => e.preventDefault()} style={linkStyle} className="qa-bug-link">🔗 Issue_recording_auth_flow.mp4</a>
                                 </p>
                             </div>
 
@@ -114,11 +115,12 @@ export default function QAShowcase() {
             <div style={sectionDivider} />
 
             {/* Test Case Showcase Section */}
-            <h1 style={{ ...mainTitle, marginTop: "20px" }}>Test Case Showcase</h1>
+            <h1 style={{ ...mainTitle, marginTop: "20px" }} className="qa-title">Test Case Showcase</h1>
 
             <div style={introSection}>
                 <motion.div
                     style={introText}
+                    className="qa-intro-card"
                     whileHover={{ scale: 1.02, boxShadow: "0 15px 35px rgba(0,0,0,0.35)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -132,47 +134,47 @@ export default function QAShowcase() {
                 <div style={tagStyle} className="premium-glow-card">Test Execution Report Summary</div>
                 <motion.div
                     style={executionSummaryContainer}
-                    className="premium-glow-card"
-                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px rgba(212, 175, 55, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
+                    className="premium-glow-card qa-execution-summary"
+                    whileHover={{ scale: 1.01, boxShadow: "0 0 35px var(--glow-gold), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "var(--border-gold-hover)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     <div style={executionDetails}>
-                        <p style={detailText}><strong>Execution Date :</strong> 15 Mar 2026</p>
-                        <p style={detailText}><strong>Executed By :</strong> Bala Subra Maniyan</p>
-                        <p style={detailText}><strong>Environment :</strong> Web | Mobile | Android | IOS</p>
+                        <p style={detailText} className="qa-stat-detail"><strong>Execution Date :</strong> 15 Mar 2026</p>
+                        <p style={detailText} className="qa-stat-detail"><strong>Executed By :</strong> Bala Subra Maniyan</p>
+                        <p style={detailText} className="qa-stat-detail"><strong>Environment :</strong> Web | Mobile | Android | IOS</p>
                     </div>
 
                     <div style={executionDetails}>
-                        <p style={{ ...detailText, color: "#D4AF37" }}><strong>Total Test Cases :</strong> 3</p>
-                        <p style={{ ...detailText, color: "#4ade80" }}><strong>Passed :</strong> 3</p>
-                        <p style={{ ...detailText, color: "#f87171" }}><strong>Failed :</strong> 0</p>
-                        <p style={{ ...detailText, color: "#fb923c" }}><strong>Blocked :</strong> 0</p>
-                        <p style={detailText}><strong>Execution Rate :</strong> 100%</p>
+                        <p style={{ ...detailText, color: "var(--accent-gold-text)" }} className="qa-stat-total"><strong>Total Test Cases :</strong> 3</p>
+                        <p style={{ ...detailText, color: "#4ade80" }} className="qa-stat-passed"><strong>Passed :</strong> 3</p>
+                        <p style={{ ...detailText, color: "#f87171" }} className="qa-stat-failed"><strong>Failed :</strong> 0</p>
+                        <p style={{ ...detailText, color: "#fb923c" }} className="qa-stat-blocked"><strong>Blocked :</strong> 0</p>
+                        <p style={detailText} className="qa-stat-detail"><strong>Execution Rate :</strong> 100%</p>
                     </div>
                 </motion.div>
 
                 <div style={{ ...tagStyle, marginTop: "40px" }} className="premium-glow-card">Test Case Execution Showcase</div>
                 <motion.div
                     style={{ ...tableContainer, width: "100%", boxSizing: "border-box" }}
-                    className="premium-glow-card"
-                    whileHover={{ scale: 1.005, boxShadow: "0 0 35px rgba(212, 175, 55, 0.2), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
+                    className="premium-glow-card qa-table-container"
+                    whileHover={{ scale: 1.005, boxShadow: "0 0 35px var(--glow-gold), 0 15px 35px rgba(0,0,0,0.3)", borderColor: "var(--border-gold-hover)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                     <table style={{ ...tableStyle, minWidth: "1500px" }}>
                         <thead>
                             <tr>
-                                <th style={thStyle}>SL NO</th>
-                                <th style={thStyle}>TEST SCENARIO ID</th>
-                                <th style={thStyle}>SCREEN NAME</th>
-                                <th style={thStyle}>TEST SCENARIO DESCRIPTION</th>
-                                <th style={thStyle}>UI / FUNCTIONAL</th>
-                                <th style={thStyle}>TEST CASE ID</th>
-                                <th style={thStyle}>TEST CASE DESCRIPTION</th>
-                                <th style={thStyle}>TEST STEPS</th>
-                                <th style={thStyle}>TEST DATA</th>
-                                <th style={thStyle}>EXPECTED RESULT</th>
-                                <th style={thStyle}>RESULT</th>
-                                <th style={thStyle}>COMMENT</th>
+                                <th style={thStyle} className="qa-th">SL NO</th>
+                                <th style={thStyle} className="qa-th">TEST SCENARIO ID</th>
+                                <th style={thStyle} className="qa-th">SCREEN NAME</th>
+                                <th style={thStyle} className="qa-th">TEST SCENARIO DESCRIPTION</th>
+                                <th style={thStyle} className="qa-th">UI / FUNCTIONAL</th>
+                                <th style={thStyle} className="qa-th">TEST CASE ID</th>
+                                <th style={thStyle} className="qa-th">TEST CASE DESCRIPTION</th>
+                                <th style={thStyle} className="qa-th">TEST STEPS</th>
+                                <th style={thStyle} className="qa-th">TEST DATA</th>
+                                <th style={thStyle} className="qa-th">EXPECTED RESULT</th>
+                                <th style={thStyle} className="qa-th">RESULT</th>
+                                <th style={thStyle} className="qa-th">COMMENT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -202,25 +204,26 @@ export default function QAShowcase() {
                                 <motion.tr
                                     key={index}
                                     style={tdRowStyle}
+                                    className="qa-table-row"
                                     whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)", scale: 1.01 }}
                                     transition={{ duration: 0.2, ease: "easeInOut" }}
                                 >
-                                    <td style={tdStyle}>{row.sl}</td>
-                                    <td style={tdStyle}>{row.tsId}</td>
-                                    <td style={tdStyle}>{row.screen}</td>
-                                    <td style={tdStyle}>{row.tsDesc}</td>
-                                    <td style={tdStyle}>{row.type}</td>
-                                    <td style={tdStyle}>{row.tcId}</td>
-                                    <td style={tdStyle}>{row.tcDesc}</td>
-                                    <td style={tdStyle}>
+                                    <td style={tdStyle} className="qa-td">{row.sl}</td>
+                                    <td style={tdStyle} className="qa-td">{row.tsId}</td>
+                                    <td style={tdStyle} className="qa-td">{row.screen}</td>
+                                    <td style={tdStyle} className="qa-td">{row.tsDesc}</td>
+                                    <td style={tdStyle} className="qa-td">{row.type}</td>
+                                    <td style={tdStyle} className="qa-td">{row.tcId}</td>
+                                    <td style={tdStyle} className="qa-td">{row.tcDesc}</td>
+                                    <td style={tdStyle} className="qa-td">
                                         {row.steps.map((step, i) => <div key={i}>{step}</div>)}
                                     </td>
-                                    <td style={tdStyle}>
+                                    <td style={tdStyle} className="qa-td">
                                         {row.data.map((d, i) => <div key={i}>{d}</div>)}
                                     </td>
-                                    <td style={tdStyle}>{row.expected}</td>
-                                    <td style={{ ...tdStyle, color: row.result === "Pass" ? "#4ade80" : "#fca5a5", fontWeight: "bold" }}>{row.result}</td>
-                                    <td style={tdStyle}>{row.comment}</td>
+                                    <td style={tdStyle} className="qa-td">{row.expected}</td>
+                                    <td style={{ ...tdStyle, color: row.result === "Pass" ? "#4ade80" : "#fca5a5", fontWeight: "bold" }} className={row.result === "Pass" ? "qa-td qa-status-pass" : row.result === "Fail" ? "qa-td qa-status-fail" : "qa-td qa-status-blocked"}>{row.result}</td>
+                                    <td style={tdStyle} className="qa-td">{row.comment}</td>
                                 </motion.tr>
                             ))}
                         </tbody>
@@ -232,11 +235,12 @@ export default function QAShowcase() {
             <div style={sectionDivider} />
 
             {/* Automation & QA Tools Section */}
-            <h1 style={{ ...mainTitle, marginTop: "20px" }}>Automation & QA Tools</h1>
+            <h1 style={{ ...mainTitle, marginTop: "20px" }} className="qa-title">Automation & QA Tools</h1>
 
             <div style={introSection}>
                 <motion.div
                     style={introText}
+                    className="qa-intro-card"
                     whileHover={{ scale: 1.02, boxShadow: "0 15px 35px rgba(0,0,0,0.35)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -256,8 +260,8 @@ export default function QAShowcase() {
                     <motion.div
                         key={index}
                         style={toolCard}
-                        className="premium-glow-card"
-                        whileHover={{ y: -8, boxShadow: "0 0 30px rgba(212, 175, 55, 0.25), 0 15px 35px rgba(0, 0, 0, 0.3)", borderColor: "rgba(212, 175, 55, 0.45)" }}
+                        className="premium-glow-card qa-tool-card"
+                        whileHover={{ y: -8, boxShadow: "0 0 30px rgba(var(--glow-rgb-val), 0.25), 0 15px 35px rgba(0, 0, 0, 0.3)", borderColor: "var(--border-gold-hover)" }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                         <div style={toolIconContainer}>
@@ -275,9 +279,9 @@ export default function QAShowcase() {
                                 <span style={{ fontSize: "32px" }}>{tool.icon}</span>
                             )}
                         </div>
-                        <h3 style={toolName}>{tool.name}</h3>
+                        <h3 style={toolName} className="qa-tool-name">{tool.name}</h3>
                         {tool.tag && <span style={toolBadge}>{tool.tag}</span>}
-                        <p style={toolDescription}>{tool.desc}</p>
+                        <p style={toolDescription} className="qa-tool-desc">{tool.desc}</p>
                     </motion.div>
                 ))}
             </div>
@@ -292,7 +296,7 @@ const pageContainer = {
     background: "transparent",
     padding: "120px 40px 60px 40px",
     minHeight: "100vh",
-    color: "white",
+    color: "var(--text-white)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -303,10 +307,7 @@ const mainTitle = {
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: "10px",
-    background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    textShadow: "0px 2px 10px rgba(0,0,0,0.2)"
+    color: "var(--text-white)"
 };
 
 const introSection = {
@@ -318,18 +319,18 @@ const introSection = {
 const introText = {
     fontSize: "18px",
     lineHeight: "1.6",
-    color: "#cbd5e1",
-    background: "rgba(255, 255, 255, 0.05)",
+    color: "var(--text-gray)",
+    background: "var(--bg-card)",
     padding: "25px",
     borderRadius: "15px",
-    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border: "1px solid var(--border-gold)"
 };
 
 const sectionDivider = {
     width: "100%",
     maxWidth: "1200px",
     height: "1px",
-    background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+    background: "linear-gradient(90deg, transparent, rgba(var(--glow-rgb-val), 0.25), transparent)",
     margin: "80px auto 40px auto",
     opacity: 0.8
 };
@@ -345,8 +346,8 @@ const dashboardGrid = {
 };
 
 const dashboardCardBase = {
-    background: "rgba(18, 18, 18, 0.75)",
-    border: "1px solid rgba(212, 175, 55, 0.15)",
+    background: "var(--bg-card)",
+    border: "1px solid var(--border-gold)",
     borderRadius: "16px",
     padding: "20px 30px",
     display: "flex",
@@ -366,7 +367,7 @@ const dashboardNumber = {
 
 const dashboardLabel = {
     fontSize: "14px",
-    color: "#94a3b8",
+    color: "var(--text-muted)",
     textTransform: "uppercase",
     letterSpacing: "0.5px",
     fontWeight: "600",
@@ -383,7 +384,7 @@ const cardWrapper = {
 };
 
 const tagStyle = {
-    background: "#D4AF37",
+    background: "var(--accent-gold)",
     color: "#0A0A0A",
     padding: "6px 16px",
     borderRadius: "20px",
@@ -397,8 +398,8 @@ const tagStyle = {
 };
 
 const bugCard = {
-    background: "rgba(18, 18, 18, 0.75)",
-    border: "1px solid rgba(212, 175, 55, 0.15)",
+    background: "var(--bg-card)",
+    border: "1px solid var(--border-gold)",
     borderRadius: "20px",
     padding: "40px",
     width: "100%",
@@ -416,7 +417,7 @@ const cardHeader = {
 
 const bugId = {
     fontSize: "14px",
-    color: "#94a3b8",
+    color: "var(--text-muted)",
     fontFamily: "monospace",
     letterSpacing: "1px"
 };
@@ -425,12 +426,12 @@ const bugTitle = {
     fontSize: "28px",
     fontWeight: "bold",
     marginTop: "5px",
-    color: "#f8fafc"
+    color: "var(--text-white)"
 };
 
 const environmentText = {
     fontSize: "14px",
-    color: "#94a3b8",
+    color: "var(--text-muted)",
     marginTop: "8px",
     fontWeight: "500",
     letterSpacing: "0.5px"
@@ -453,7 +454,7 @@ const badgeBase = {
 const divider = {
     border: "none",
     height: "1px",
-    background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+    background: "linear-gradient(90deg, transparent, rgba(var(--glow-rgb-val), 0.25), transparent)",
     margin: "30px 0"
 };
 
@@ -472,22 +473,22 @@ const detailColumn = {
 const sectionTitle = {
     fontSize: "18px",
     fontWeight: "600",
-    color: "#e2e8f0",
+    color: "var(--text-white)",
     marginBottom: "10px",
-    borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+    borderBottom: "1px solid var(--border-gold)",
     paddingBottom: "8px"
 };
 
 const paragraphText = {
     fontSize: "16px",
     lineHeight: "1.6",
-    color: "#cbd5e1"
+    color: "var(--text-gray)"
 };
 
 const orderedList = {
     margin: 0,
     paddingLeft: "25px",
-    color: "#cbd5e1"
+    color: "var(--text-gray)"
 };
 
 const listItem = {
@@ -497,14 +498,14 @@ const listItem = {
 };
 
 const resultBox = {
-    background: "rgba(255, 255, 255, 0.05)",
+    background: "var(--result-box-bg)",
     padding: "15px 20px",
     borderRadius: "12px",
-    border: "1px solid rgba(255, 255, 255, 0.1)"
+    border: "1px solid var(--border-gold)"
 };
 
 const linkStyle = {
-    color: "#D4AF37",
+    color: "var(--accent-gold-text)",
     textDecoration: "none",
     display: "inline-flex",
     alignItems: "center",
@@ -512,8 +513,8 @@ const linkStyle = {
 };
 
 const tableContainer = {
-    background: "rgba(18, 18, 18, 0.75)",
-    border: "1px solid rgba(212, 175, 55, 0.15)",
+    background: "var(--bg-card)",
+    border: "1px solid var(--border-gold)",
     borderRadius: "20px",
     padding: "30px",
     overflowX: "auto"
@@ -528,21 +529,21 @@ const tableStyle = {
 const thStyle = {
     padding: "12px 15px",
     textAlign: "left",
-    borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
-    color: "#94a3b8",
+    borderBottom: "1px solid var(--border-gold)",
+    color: "var(--text-muted)",
     fontWeight: "bold",
     fontSize: "14px",
     textTransform: "uppercase"
 };
 
 const tdRowStyle = {
-    borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
+    borderBottom: "1px solid var(--border-gold)",
     cursor: "default"
 };
 
 const tdStyle = {
     padding: "15px",
-    color: "#cbd5e1",
+    color: "var(--text-gray)",
     fontSize: "14px",
     verticalAlign: "top",
     lineHeight: "1.5"
@@ -555,8 +556,8 @@ const executionSummaryContainer = {
     flexWrap: "wrap",
     width: "100%",
     padding: "20px 30px",
-    background: "rgba(18, 18, 18, 0.75)",
-    border: "1px solid rgba(212, 175, 55, 0.15)",
+    background: "var(--bg-card)",
+    border: "1px solid var(--border-gold)",
     borderRadius: "15px",
     marginBottom: "20px",
     gap: "20px"
@@ -571,7 +572,7 @@ const executionDetails = {
 const detailText = {
     margin: 0,
     fontSize: "15px",
-    color: "#cbd5e1",
+    color: "var(--text-gray)",
     fontFamily: "monospace"
 };
 
@@ -586,8 +587,8 @@ const toolsGrid = {
 };
 
 const toolCard = {
-    background: "rgba(18, 18, 18, 0.75)",
-    border: "1px solid rgba(212, 175, 55, 0.15)",
+    background: "var(--bg-card)",
+    border: "1px solid var(--border-gold)",
     borderRadius: "20px",
     padding: "30px",
     display: "flex",
@@ -600,20 +601,20 @@ const toolCard = {
 const toolIconContainer = {
     width: "90px",
     height: "90px",
-    background: "rgba(255, 255, 255, 0.08)",
+    background: "rgba(var(--glow-rgb-val), 0.04)",
     borderRadius: "16px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "20px",
-    border: "1px solid rgba(255, 255, 255, 0.15)",
+    border: "1px solid var(--border-gold)",
     overflow: "hidden"
 };
 
 const toolName = {
     fontSize: "22px",
     fontWeight: "bold",
-    color: "#f8fafc",
+    color: "var(--text-white)",
     marginBottom: "8px",
     textAlign: "center",
     width: "100%"
@@ -621,22 +622,22 @@ const toolName = {
 
 const toolBadge = {
     display: "inline-block",
-    background: "rgba(212, 175, 55, 0.12)",
-    color: "#D4AF37",
+    background: "var(--tool-badge-bg)",
+    color: "var(--accent-gold-text)",
     padding: "4px 10px",
     borderRadius: "6px",
     fontSize: "12px",
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: "0.5px",
-    border: "1px solid rgba(212, 175, 55, 0.3)",
+    border: "1px solid var(--tool-badge-border)",
     marginBottom: "15px"
 };
 
 const toolDescription = {
     fontSize: "15px",
     lineHeight: "1.6",
-    color: "#94a3b8",
+    color: "var(--text-gray)",
     margin: 0,
     textAlign: "center"
 };

@@ -1,8 +1,42 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FiMail, FiPhone, FiMapPin, FiBriefcase, FiCheck, FiArrowRight, FiCheckCircle, FiUser } from "react-icons/fi";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { motion, useInView } from "framer-motion";
+
+/* ================= COUNTER ANIMATION COMPONENT ================= */
+function Counter({ target, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const end = target;
+      const duration = 1.5; // seconds
+      const totalFrames = Math.round(duration * 60);
+      let frame = 0;
+
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        const currentCount = Math.round(end * (1 - (1 - progress) * (1 - progress)));
+        setCount(currentCount);
+
+        if (frame === totalFrames) {
+          clearInterval(counter);
+        }
+      }, 1000 / 60);
+
+      return () => clearInterval(counter);
+    }
+  }, [isInView, target]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 export default function Contact() {
   const form = useRef();
@@ -28,13 +62,14 @@ export default function Contact() {
         email: formData.get("user_email"),        // Maps to {{email}}
         user_email: formData.get("user_email"),   // Maps to {{user_email}}
         reply_to: formData.get("user_email"),     // Standard EmailJS variable for Reply-To
+        subject: formData.get("subject") || "",   // Maps to {{subject}}
         message: formData.get("message")          // Maps to {{message}}
       };
 
-      // 1️⃣ Send email to YOU (Admin Notification + Built-in Auto Reply)
+      // Send email to YOU (Admin Notification + Built-in Auto Reply)
       await emailjs.send(
         "service_0jq4soc",
-        "template_zhs83db",     // Admin template (Make sure Auto-Reply tab is ON inside EmailJS for this!)
+        "template_zhs83db",
         payload,
         "8Ueuot6w0yUKXMThd"
       );
@@ -52,99 +87,281 @@ export default function Contact() {
   };
 
   return (
-    <div style={pageContainer}>
-
+    <div className="contact-container">
       {/* PARTICLES BACKGROUND */}
       <Particles
         init={particlesInit}
         options={{
-          background: { color: "#0A0A0A" },
+          background: { color: "transparent" },
           particles: {
             number: { value: 60 },
             size: { value: 2 },
             move: { speed: 1 },
-            links: { enable: true, color: "#D4AF37" }
+            links: { enable: true, color: document.body.classList.contains("light-theme") ? "#2563EB" : "#D4AF37", opacity: 0.15 }
           }
         }}
-        style={{ position: "absolute" }}
+        style={{ position: "absolute", zIndex: 0 }}
       />
 
-      <div style={contentWrapper}>
+      <div className="contact-bg-dots"></div>
 
-        <h1 style={title}>
-          Let's Build <span style={gradientText}>Quality Software</span>
-        </h1>
+      {/* SECTION HEADER */}
+      <h1 className="contact-title">
+        Let's Build <span className="gradient-text">Quality Software</span>
+      </h1>
+      <p className="contact-subtitle">
+        Reach out and let's discuss how we can deliver stable, scalable, and high-quality applications through structured testing, automation, and quality assurance.
+      </p>
 
-        <p style={subtitle}>
-          Reach out and let's discuss how we can deliver stable,
-          scalable, and high-quality applications.
-        </p>
+      {/* 2-COLUMN RESPONSIVE LAYOUT */}
+      <div className="contact-grid">
+        
+        {/* LEFT COLUMN: Contact Information Card */}
+        <motion.div 
+          className="contact-info-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="contact-status-pill">
+            <span className="pulse-dot"></span>
+            Available for Opportunities
+          </div>
+          <h3 className="info-card-header">Contact Information</h3>
+          
+          <div className="contact-info-items">
+            <div className="contact-info-item">
+              <div className="item-icon-wrapper"><FiMail /></div>
+              <div>
+                <div className="item-label">Email</div>
+                <a href="mailto:balasubramaniyansr@gmail.com" className="item-value">balasubramaniyansr@gmail.com</a>
+              </div>
+            </div>
 
-        {/* CONTACT FORM */}
-        <form ref={form} onSubmit={sendEmail} style={formStyle} className="neon-card">
+            <div className="contact-info-item">
+              <div className="item-icon-wrapper"><FiPhone /></div>
+              <div>
+                <div className="item-label">Phone</div>
+                <a href="tel:+918925156100" className="item-value">+91 89251 56100</a>
+              </div>
+            </div>
 
-          <input
-            name="user_name"
-            placeholder="Your Name"
-            required
-            style={inputStyle}
-          />
+            <div className="contact-info-item">
+              <div className="item-icon-wrapper"><FiMapPin /></div>
+              <div>
+                <div className="item-label">Location</div>
+                <div className="item-value">Coimbatore, Tamil Nadu, India</div>
+              </div>
+            </div>
 
-          <input
-            name="user_email"
-            type="email"
-            placeholder="Your Email"
-            required
-            style={inputStyle}
-          />
+            <div className="contact-info-item">
+              <div className="item-icon-wrapper"><FiBriefcase /></div>
+              <div>
+                <div className="item-label">Current Role</div>
+                <div className="item-value">Quality Assurance Engineer</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message"
-            required
-            style={inputStyle}
-          />
+        {/* RIGHT COLUMN: Contact Form */}
+        <motion.div 
+          className="contact-form-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <form ref={form} onSubmit={sendEmail} className="contact-form">
+            <div className="form-group-row">
+              <div className="form-group">
+                <label className="form-label"><FiUser /> Name</label>
+                <input
+                  name="user_name"
+                  placeholder="Your Name"
+                  required
+                  className="contact-input"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label"><FiMail /> Email</label>
+                <input
+                  name="user_email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                  className="contact-input"
+                />
+              </div>
+            </div>
 
-          <button type="submit" className="animated-btn" disabled={loading}>
-            {loading ? "Sending..." : "Send Message 🚀"}
-          </button>
+            <div className="form-group">
+              <label className="form-label">Subject</label>
+              <input
+                name="subject"
+                placeholder="Subject of message"
+                required
+                className="contact-input"
+              />
+            </div>
 
-        </form>
+            <div className="form-group">
+              <label className="form-label">Message</label>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="How can I help you?"
+                required
+                className="contact-textarea"
+              />
+            </div>
 
-        {/* SOCIAL ICONS */}
-        <div style={iconContainer}>
-          <a
-            href="https://github.com/BalaSubraManiyan-sr"
-            target="_blank"
-            rel="noreferrer"
-            title="GitHub Profile"
-          >
-            <FaGithub size={28} />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/bala-subra-maniyan-s-r/"
-            target="_blank"
-            rel="noreferrer"
-            title="LinkedIn Profile"
-          >
-            <FaLinkedin size={28} />
-          </a>
-        </div>
-
+            <button type="submit" className="contact-btn-submit" disabled={loading}>
+              {loading ? "Sending..." : "Send Message 🚀"}
+            </button>
+          </form>
+        </motion.div>
       </div>
 
-      {/* FLOATING WHATSAPP */}
-      <a
-        href="https://wa.me/918925156100?text=Hello%20Bala%20Subra%20Maniyan%2C%20I%20visited%20your%20QA%20portfolio%20and%20would%20like%20to%20connect%20regarding%20quality%20assurance%20opportunities."
-        target="_blank"
-        rel="noreferrer"
-        style={whatsappBubble}
-        title="Chat with me on WhatsApp"
+      {/* PROFESSIONAL PROFILES SECTION */}
+      <motion.div 
+        className="contact-profiles-section"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <FaWhatsapp size={28} />
-      </a>
+        <h3 className="profiles-heading">Connect With Me</h3>
+        <div className="profiles-buttons">
+          <a 
+            href="https://github.com/BalaSubraManiyan-sr" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="social-circle-btn github-btn"
+            title="GitHub"
+          >
+            <FaGithub size={24} />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/bala-subra-maniyan-s-r/" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="social-circle-btn linkedin-btn"
+            title="LinkedIn"
+          >
+            <FaLinkedin size={24} />
+          </a>
+          <a 
+            href="https://wa.me/918925156100?text=Hello%20Bala%20Subra%20Maniyan%2C%20I%20visited%20your%20QA%20portfolio%20and%20would%20like%20to%20connect%20regarding%20quality%20assurance%20opportunities." 
+            target="_blank" 
+            rel="noreferrer" 
+            className="social-circle-btn whatsapp-btn"
+            title="WhatsApp"
+          >
+            <FaWhatsapp size={24} />
+          </a>
+        </div>
+      </motion.div>
+
+      {/* QUICK STATS SECTION */}
+      <motion.div 
+        className="contact-stats-grid"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="contact-stat-card">
+          <div className="stat-value"><Counter target={500} suffix="+" /></div>
+          <div className="stat-label">Test Cases Executed</div>
+        </div>
+        <div className="contact-stat-card">
+          <div className="stat-value"><Counter target={100} suffix="+" /></div>
+          <div className="stat-label">Defects Reported</div>
+        </div>
+        <div className="contact-stat-card">
+          <div className="stat-value"><Counter target={2} suffix="+" /></div>
+          <div className="stat-label">Years Experience</div>
+        </div>
+        <div className="contact-stat-card">
+          <div className="stat-value"><Counter target={10} suffix="+" /></div>
+          <div className="stat-label">Projects Delivered</div>
+        </div>
+      </motion.div>
+
+      {/* CALL TO ACTION CARD */}
+      <motion.div 
+        className="contact-cta-card"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="cta-left">
+          <h3 className="cta-title">Need a QA Engineer for Your Next Project?</h3>
+          <p className="cta-description">
+            I help teams deliver reliable, scalable, and high-quality software through structured testing, automation, API validation, and defect management.
+          </p>
+          
+          <div className="cta-split-lists">
+            <div className="cta-list-column">
+              <h4 className="cta-list-header">My Services</h4>
+              <ul className="cta-list">
+                <li><FiCheck /> Manual & Functional Testing</li>
+                <li><FiCheck /> Automation Testing (Selenium + TestNG)</li>
+                <li><FiCheck /> API Testing & Validation</li>
+                <li><FiCheck /> Defect Lifecycle Management</li>
+                <li><FiCheck /> Regression & Smoke Testing</li>
+                <li><FiCheck /> Cross-Browser Testing</li>
+                <li><FiCheck /> Test Planning & Documentation</li>
+                <li><FiCheck /> Release Validation & UAT Support</li>
+              </ul>
+            </div>
+            <div className="cta-list-column">
+              <h4 className="cta-list-header">Your Benefits</h4>
+              <ul className="cta-list">
+                <li><FiCheckCircle /> Improved Software Stability</li>
+                <li><FiCheckCircle /> Faster Release Confidence</li>
+                <li><FiCheckCircle /> Better User Experience</li>
+                <li><FiCheckCircle /> Reduced Production Defects</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="cta-right-buttons">
+          <a href="mailto:balasubramaniyansr@gmail.com" className="cta-btn-primary">
+            Let's Connect <FiArrowRight />
+          </a>
+          <a 
+            href="https://wa.me/918925156100?text=Hello%20Bala%20Subra%20Maniyan%2C%20I%20visited%20your%20QA%20portfolio%20and%20would%20like%20to%20connect%20regarding%20quality%20assurance%20opportunities." 
+            target="_blank" 
+            rel="noreferrer" 
+            className="cta-btn-secondary"
+          >
+            <FaWhatsapp /> Chat on WhatsApp
+          </a>
+        </div>
+      </motion.div>
+
+      {/* TRUST INDICATORS */}
+      <motion.div 
+        className="contact-trust-bar"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <span className="trust-item">✓ Quality Focused</span>
+        <span className="trust-dot"></span>
+        <span className="trust-item">✓ Automation Driven</span>
+        <span className="trust-dot"></span>
+        <span className="trust-item">✓ Detail Oriented</span>
+        <span className="trust-dot"></span>
+        <span className="trust-item">✓ Client Centric</span>
+      </motion.div>
+
 
       {/* SUCCESS POPUP */}
       {showSuccess && (
@@ -161,78 +378,7 @@ export default function Contact() {
   );
 }
 
-/* ================= STYLES ================= */
-
-const pageContainer = {
-  minHeight: "100vh",
-  position: "relative",
-  overflow: "hidden",
-  background: "transparent",
-  color: "white"
-};
-
-const contentWrapper = {
-  position: "relative",
-  zIndex: 2,
-  padding: "120px 40px",
-  textAlign: "center"
-};
-
-const title = {
-  fontSize: "42px",
-  marginBottom: "20px"
-};
-
-const gradientText = {
-  background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent"
-};
-
-const subtitle = {
-  opacity: 0.7,
-  marginBottom: "60px"
-};
-
-const formStyle = {
-  maxWidth: "500px",
-  margin: "auto",
-  display: "flex",
-  flexDirection: "column",
-  gap: "20px",
-  padding: "40px",
-  borderRadius: "20px"
-};
-
-const inputStyle = {
-  padding: "14px",
-  borderRadius: "10px",
-  background: "rgba(10, 10, 10, 0.8)",
-  border: "1px solid rgba(212, 175, 55, 0.3)",
-  color: "white",
-  outline: "none",
-  transition: "all 0.3s ease"
-};
-
-const iconContainer = {
-  marginTop: "40px",
-  display: "flex",
-  justifyContent: "center",
-  gap: "50px"
-};
-
-const whatsappBubble = {
-  position: "fixed",
-  bottom: "30px",
-  right: "30px",
-  background: "#25d366",
-  color: "white",
-  padding: "15px",
-  borderRadius: "50%",
-  zIndex: 10,
-  boxShadow: "0 0 20px #25d366"
-};
-
+/* ================= LEGACY POPUP STYLES ================= */
 const popupOverlay = {
   position: "fixed",
   inset: 0,
@@ -245,9 +391,9 @@ const popupOverlay = {
 };
 
 const squarePopup = {
-  background: "#121212",
-  border: "2px solid #D4AF37",
-  boxShadow: "0 0 30px rgba(212, 175, 55, 0.3)",
+  background: "var(--bg-card)",
+  border: "2px solid var(--border-gold)",
+  boxShadow: "0 0 30px var(--glow-gold)",
   padding: "40px",
   borderRadius: "15px",
   textAlign: "center",

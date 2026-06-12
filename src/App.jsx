@@ -17,13 +17,13 @@ import Contact from "./components/Contact";
 
 /* ROUTE BACKGROUNDS */
 const backgrounds = {
-  "/": "linear-gradient(135deg, #0A0A0A, #121212)",
-  "/about": "linear-gradient(135deg, #0A0A0A, #14120E)",
-  "/projects": "linear-gradient(135deg, #0A0A0A, #121212)",
-  "/experience": "linear-gradient(135deg, #0A0A0A, #15130F)",
-  "/qa-showcase": "linear-gradient(135deg, #0A0A0A, #121212)",
-  "/approach": "linear-gradient(135deg, #0A0A0A, #161410)",
-  "/contact": "linear-gradient(135deg, #0A0A0A, #121212)"
+  "/": "var(--bg-gradient-home)",
+  "/about": "var(--bg-gradient-about)",
+  "/projects": "var(--bg-gradient-projects)",
+  "/experience": "var(--bg-gradient-experience)",
+  "/qa-showcase": "var(--bg-gradient-qa-showcase)",
+  "/approach": "var(--bg-gradient-approach)",
+  "/contact": "var(--bg-gradient-contact)"
 };
 
 /* LOADER */
@@ -89,15 +89,46 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("portfolio-theme") || "dark";
+  });
+
+  useEffect(() => {
+    const root = document.body;
+    if (theme === "light") {
+      root.classList.add("light-theme");
+    } else {
+      root.classList.remove("light-theme");
+    }
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <AnimatedRoutes />
       <footer className="footer-global">
-        <span className="footer-copyright">© 2026 </span>
-        <span className="footer-name">Bala Subra Maniyan S R</span>
-        <span className="footer-divider"> | </span>
-        <span className="footer-profession">Quality Assurance Engineer</span>
+        <div className="footer-copyright">
+          &copy; 2026 <span className="footer-name">Bala Subra Maniyan S R</span>
+        </div>
+        <div className="footer-profession">Quality Assurance Engineer</div>
+        <div className="footer-services">
+          Manual Testing &bull; Automation Testing &bull; API Testing &bull; Defect Management
+        </div>
+        <div className="footer-links">
+          <a href="https://github.com/BalaSubraManiyan-sr" target="_blank" rel="noreferrer">GitHub</a>
+          <span className="footer-divider">|</span>
+          <a href="https://www.linkedin.com/in/bala-subra-maniyan-s-r/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <span className="footer-divider">|</span>
+          <a href="https://wa.me/918925156100" target="_blank" rel="noreferrer">WhatsApp</a>
+          <span className="footer-divider">|</span>
+          <a href="mailto:balasubramaniyansr@gmail.com">Email</a>
+        </div>
+        <div className="footer-tagline">"Ensuring Quality. Delivering Confidence."</div>
       </footer>
     </>
   );

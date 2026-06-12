@@ -47,12 +47,12 @@ const RunningCode = () => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "flex-end",
-      borderBottom: "2px solid #D4AF37",
+      borderBottom: "2px solid var(--accent-gold-text)",
       overflow: "hidden"
     }}>
       {lines.map((line, i) => (
         <div key={i} style={{
-          color: line.includes('PASS') ? '#4ade80' : line.includes('>') ? '#D4AF37' : '#F3E5AB',
+          color: line.includes('PASS') ? '#4ade80' : line.includes('>') ? 'var(--accent-gold-text)' : 'var(--accent-gold-hover)',
           marginBottom: "6px",
           opacity: 0.6 + (i * 0.05),
           textShadow: line.includes('PASS') ? '0 0 5px rgba(74, 222, 128, 0.4)' : 'none',
@@ -63,8 +63,8 @@ const RunningCode = () => {
         </div>
       ))}
       <div style={{ display: "flex", alignItems: "center", marginTop: "4px" }}>
-        <span style={{ color: "#D4AF37", marginRight: "8px" }}>&gt;</span>
-        <div style={{ width: "8px", height: "14px", background: "#D4AF37", animation: "blink 1s step-end infinite" }} />
+        <span style={{ color: "var(--accent-gold-text)", marginRight: "8px" }}>&gt;</span>
+        <div style={{ width: "8px", height: "14px", background: "var(--accent-gold-text)", animation: "blink 1s step-end infinite" }} />
       </div>
     </div>
   );
@@ -90,12 +90,12 @@ export default function About() {
                 hyphens: "none",
                 wordBreak: "normal",
                 overflowWrap: "normal",
-                color: "#e5e7eb"
+                color: "var(--text-white)"
               }}>
-                I am a passionate <span style={{ color: "#D4AF37", fontWeight: "800" }}>Quality Assurance Engineer</span> with
-                hands-on experience in <span style={{ color: "#D4AF37", fontWeight: "800" }}>manual testing</span>,
-                <span style={{ color: "#D4AF37", fontWeight: "800" }}> automation testing</span>, and
-                <span style={{ color: "#D4AF37", fontWeight: "800" }}> API validation</span>. I focus on delivering reliable and
+                I am a passionate <span style={{ color: "var(--accent-gold-text)", fontWeight: "800" }}>Quality Assurance Engineer</span> with
+                hands-on experience in <span style={{ color: "var(--accent-gold-text)", fontWeight: "800" }}>manual testing</span>,
+                <span style={{ color: "var(--accent-gold-text)", fontWeight: "800" }}> automation testing</span>, and
+                <span style={{ color: "var(--accent-gold-text)", fontWeight: "800" }}> API validation</span>. I focus on delivering reliable and
                 high quality software by identifying defects early, improving test coverage, and supporting stable releases through
                 effective testing strategies.
               </div>
@@ -103,15 +103,15 @@ export default function About() {
           </div>
 
           <div style={{ ...glassCard, margin: 0, display: "flex", flexDirection: "column", textAlign: "left" }} className="glass-card-mobile-fix">
-            <p>Comprehensive Quality Assurance</p>
+            <p style={{ color: "var(--text-muted)", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px" }}>Comprehensive Quality Assurance</p>
             <h2 className="responsive-title" style={{ marginBottom: "10px" }}>Strategic Test Coverage</h2>
 
             <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
               {[
-                {label: "Manual Testing", text: "End-to-End, Regression, and Exploratory.", color: "#D4AF37" },
-                { label: "API Testing", text: "Functional and Schema validation of REST APIs.", color: "#F3E5AB" },
-                { label: "Compatibility", text: "Responsive Web Design (RWD) and Cross-Platform testing.", color: "#C5A028" },
-                { label: "Defect Management", text: "Root Cause Analysis (RCA) and Bug Life Cycle tracking.", color: "#E6C35C" }
+                {label: "Manual Testing", text: "End-to-End, Regression, and Exploratory.", color: "var(--accent-gold-text)" },
+                { label: "API Testing", text: "Functional and Schema validation of REST APIs.", color: "var(--accent-gold-text)" },
+                { label: "Compatibility", text: "Responsive Web Design (RWD) and Cross-Platform testing.", color: "var(--accent-gold-text)" },
+                { label: "Defect Management", text: "Root Cause Analysis (RCA) and Bug Life Cycle tracking.", color: "var(--accent-gold-text)" }
               ].map((item, i) => (
                 <div
                   key={i}
@@ -119,7 +119,7 @@ export default function About() {
                   style={{ animationDelay: `${i * 0.2 + 0.5}s` }}
                 >
                   <strong style={{ color: item.color, fontSize: "18px", display: "block", marginBottom: "5px" }}>{item.label}</strong>
-                  <span style={{ opacity: 0.9, lineHeight: "1.6" }}>{item.text}</span>
+                  <span style={{ color: "var(--text-description)", opacity: 0.9, lineHeight: "1.6" }}>{item.text}</span>
                 </div>
               ))}
             </div>
@@ -128,13 +128,13 @@ export default function About() {
           {/* BOTTOM ROW: Left (Scoop + Comp) and Right (Tools) */}
           <div style={{ display: "flex", flexDirection: "column", gap: "40px", height: "100%" }}>
             <div style={{ ...glassCard, flex: 1, display: "flex", flexDirection: "column" }} className="glass-card-mobile-fix">
-              <p>The Inside Scoop</p>
+              <p style={{ color: "var(--text-muted)", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px" }}>The Inside Scoop</p>
               <h2 className="responsive-title" style={{ marginBottom: "20px" }}>
                 Currently contributing to enterprise-level QA
                 projects at Mindgraph Technologies
               </h2>
               <div style={{ flex: 1 }}>
-                <p style={{ lineHeight: "1.6", color: "#e2e8f0" }}>
+                <p style={{ lineHeight: "1.6", color: "var(--text-description)" }}>
                   Involved in regression automation, API validation,
                   defect lifecycle management, and release verification
                   ensuring production stability.
@@ -143,7 +143,7 @@ export default function About() {
             </div>
 
             <div style={{ ...glassCard, overflow: "hidden" }} className="glass-card-mobile-fix">
-              <p>Extensive Testing Expertise</p>
+              <p style={{ color: "var(--text-muted)", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px" }}>Extensive Testing Expertise</p>
               <h2 className="responsive-title" style={{ marginBottom: "25px" }}>Core Testing Competencies</h2>
 
               <div style={{ position: "relative", width: "100%", overflow: "hidden", paddingBottom: "10px" }}>
@@ -159,7 +159,7 @@ export default function About() {
                     "Performance Testing", "Cross-Browser Testing", "Exploratory Testing", "Boundary Value Analysis (BVA)",
                     "UI/UX Testing", "Agile / Scrum", "Test Case Design", "Equivalence Partitioning (ECP)", "Risk-Based Testing"
                   ].map((comp, i) => (
-                    <span key={i} style={badge}>{comp}</span>
+                    <span key={i} className="tech-badge">{comp}</span>
                   ))}
                   {/* Duplicate for marquee */}
                   {[
@@ -168,7 +168,7 @@ export default function About() {
                     "Performance Testing", "Cross-Browser Testing", "Exploratory Testing", "Boundary Value Analysis (BVA)",
                     "UI/UX Testing", "Agile / Scrum", "Test Case Design", "Equivalence Partitioning (ECP)", "Risk-Based Testing"
                   ].map((comp, i) => (
-                    <span key={`dup-${i}`} style={badge}>{comp}</span>
+                    <span key={`dup-${i}`} className="tech-badge">{comp}</span>
                   ))}
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function About() {
 
           <div style={{ ...rightColumn, height: "100%" }}>
             <div style={{ ...glassCard, height: "100%", display: "flex", flexDirection: "column", textAlign: "left" }} className="glass-card-mobile-fix">
-              <p style={{ margin: 0 }}>QA Tools & Technologies</p>
+              <p style={{ color: "var(--text-muted)", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px", margin: 0 }}>QA Tools & Technologies</p>
               <h2 className="responsive-title" style={{ marginTop: "10px", lineHeight: "1.3" }}>Tools and technologies powering my quality assurance workflow</h2>
 
               <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "15px" }}>
@@ -189,10 +189,10 @@ export default function About() {
                   { category: "Project Tools", tools: ["Jira", "Azure DevOps", "Taiga"], color: "#EAA850" }
                 ].map((group, idx) => (
                   <div key={idx}>
-                    <strong style={{ color: group.color, display: "block", marginBottom: "8px" }}>{group.category}</strong>
+                    <strong style={{ color: "var(--accent-gold-text)", display: "block", marginBottom: "8px" }}>{group.category}</strong>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                       {group.tools.map((tech, i) => (
-                        <span key={i} className="tool-badge-animate" style={badge}>
+                        <span key={i} className="tech-badge tool-badge-animate">
                           {tech}
                         </span>
                       ))}
@@ -209,7 +209,7 @@ export default function About() {
       {/* SECTION 2.15 - Testing Environments & Platforms */}
       <div style={{ marginTop: "40px" }}>
         <div style={{ ...glassCardLarge, textAlign: "left" }} className="glass-card-mobile-fix">
-          <p style={{ color: "#94a3b8", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px" }}>
+          <p style={{ color: "var(--text-muted)", fontSize: "14px", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "10px" }}>
             Testing Environments & Platforms
           </p>
           <h2 className="responsive-title" style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "30px" }}>
@@ -247,8 +247,8 @@ export default function About() {
       <div style={{ marginTop: "80px", marginBottom: "20px" }}>
         <div className="fade-scale-up philosophy-quote-card" style={{
           ...glassCardLarge,
-          background: "rgba(212, 175, 55, 0.03)",
-          borderLeft: "4px solid #D4AF37",
+          background: "var(--result-box-bg)",
+          borderLeft: "4px solid var(--accent-gold-text)",
           borderRadius: "0 20px 20px 0",
           textAlign: "center",
           position: "relative"
@@ -258,12 +258,12 @@ export default function About() {
             top: "10px",
             left: "20px",
             fontSize: "60px",
-            color: "rgba(212, 175, 55, 0.2)",
+            color: "var(--glow-gold)",
             fontFamily: "serif",
             lineHeight: 1
           }}>“</span>
-          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "15px", color: "#D4AF37" }}>My QA Philosophy</h2>
-          <p style={{ fontSize: "18px", color: "#e2e8f0", lineHeight: "1.8", fontStyle: "italic" }}>
+          <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "15px", color: "var(--accent-gold-text)" }}>My QA Philosophy</h2>
+          <p style={{ fontSize: "18px", color: "var(--text-description)", lineHeight: "1.8", fontStyle: "italic" }}>
             "Quality is not just about finding defects — it’s about building confidence in every release. My goal is to ensure software is reliable, scalable, and delivers a seamless experience for every user. Great software is built when quality becomes everyone’s responsibility — QA ensures that promise is delivered."
           </p>
           <span className="quote-mark-end" style={{
@@ -271,7 +271,7 @@ export default function About() {
             bottom: "-10px",
             right: "20px",
             fontSize: "60px",
-            color: "rgba(212, 175, 55, 0.2)",
+            color: "var(--glow-gold)",
             fontFamily: "serif",
             lineHeight: 1
           }}>”</span>
@@ -280,10 +280,10 @@ export default function About() {
 
       {/* SECTION 2.5 - Testing Process Timeline */}
       <div style={{ marginTop: "60px" }}>
-        <div style={{ ...glassCardLarge, paddingBottom: "30px" }}>
+        <div style={{ ...glassCardLarge, paddingBottom: "30px" }} className="timeline-main-container glass-card-mobile-fix">
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>My Testing Process</h2>
-            <p style={{ color: "#94a3b8", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
               A structured and quality-driven approach to ensure reliable software delivery.
             </p>
           </div>
@@ -327,8 +327,8 @@ export default function About() {
                   <div className="timeline-line"></div>
                 </div>
                 <div className="timeline-content glass-hover">
-                  <h3 style={{ color: "#D4AF37", marginBottom: "8px", fontSize: "18px" }}>{item.title}</h3>
-                  <p style={{ color: "#cbd5e1", fontSize: "14px", lineHeight: "1.5" }}>{item.desc}</p>
+                  <h3 style={{ color: "var(--accent-gold-text)", marginBottom: "8px", fontSize: "18px" }}>{item.title}</h3>
+                  <p style={{ color: "var(--text-description)", fontSize: "14px", lineHeight: "1.5" }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -340,7 +340,7 @@ export default function About() {
       <div style={{ marginTop: "60px" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px" }}>QA Impact & Contributions</h2>
-          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #D4AF37, #AA7C11, transparent)", width: "30%", margin: "0 auto" }} />
+          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, var(--accent-gold-text), var(--accent-gold-hover), transparent)", width: "30%", margin: "0 auto" }} />
         </div>
 
         <div style={{
@@ -381,11 +381,11 @@ export default function About() {
             }
           ].map((impact, idx) => (
             <div key={idx} style={{
-              background: "rgba(255,255,255,0.03)",
+              background: "var(--bg-card)",
               backdropFilter: "blur(10px)",
               padding: "25px",
               borderRadius: "16px",
-              border: "1px solid rgba(212, 175, 55, 0.3)",
+              border: "1px solid var(--border-gold-hover)",
               display: "flex",
               alignItems: "flex-start",
               gap: "15px",
@@ -395,8 +395,8 @@ export default function About() {
               className="reveal impact-card"
             >
               <div style={{
-                background: "rgba(212, 175, 55, 0.1)",
-                color: "#D4AF37",
+                background: "var(--glow-gold)",
+                color: "var(--accent-gold-text)",
                 borderRadius: "50%",
                 width: "30px",
                 height: "30px",
@@ -406,9 +406,9 @@ export default function About() {
                 flexShrink: 0,
                 marginTop: "2px"
               }}>✔</div>
-              <p style={{ lineHeight: "1.6", color: "#e2e8f0", fontSize: "15px" }}>
+              <p style={{ lineHeight: "1.6", color: "var(--text-description)", fontSize: "15px" }}>
                 {impact.text}
-                <strong style={{ color: "#D4AF37", fontWeight: "600", padding: "0 4px" }}>{impact.highlight}</strong>
+                <strong style={{ color: "var(--accent-gold-text)", fontWeight: "600", padding: "0 4px" }}>{impact.highlight}</strong>
                 {impact.rest}
               </p>
             </div>
@@ -420,7 +420,7 @@ export default function About() {
       <div style={{ marginTop: "60px" }}>
         <div style={{ ...glassCardLarge, textAlign: "center", paddingBottom: "20px" }} className="glass-card-mobile-fix">
           <h2 className="responsive-title" style={{ letterSpacing: "1px", marginBottom: "10px", marginTop: "0" }}>KEY ACHIEVEMENTS</h2>
-          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, #D4AF37, #AA7C11, transparent)", width: "100%", marginBottom: "30px" }} />
+          <div style={{ height: "2px", background: "linear-gradient(90deg, transparent, var(--accent-gold-text), var(--accent-gold-hover), transparent)", width: "100%", marginBottom: "30px" }} />
 
           <div style={{
             display: "grid",
@@ -428,16 +428,16 @@ export default function About() {
             gap: "30px",
             textAlign: "left"
           }}>
-            <div style={achievementItem}>
+            <div className="achievement-card" style={achievementItem}>
               <p>Improved regression testing efficiency by automating <strong>selected critical workflows</strong> using Selenium WebDriver and TestNG.</p>
             </div>
-            <div style={achievementItem}>
+            <div className="achievement-card" style={achievementItem}>
               <p>Reduced production defects through effective <strong>test planning, requirement analysis, and early defect identification</strong>.</p>
             </div>
-            <div style={achievementItem}>
+            <div className="achievement-card" style={achievementItem}>
               <p>Enhanced test coverage by designing detailed test scenarios using <strong>BVA and ECP</strong> techniques.</p>
             </div>
-            <div style={achievementItem}>
+            <div className="achievement-card" style={achievementItem}>
               <p>Supported successful <strong>SIT and UAT phases</strong> by collaborating with clients and internal teams to ensure smooth releases.</p>
             </div>
           </div>
@@ -446,9 +446,9 @@ export default function About() {
 
       {/* SECTION 4 - Resume CTA */}
       <div style={{ marginTop: "60px" }}>
-        <div style={resumeCard}>
+        <div className="resume-card" style={resumeCard}>
           <h2>Interested in collaborating?</h2>
-          <p style={{ marginTop: "10px", fontSize: "16px" }}>Download my resume to explore my experience in manual testing, automation, API validation, and enterprise QA projects.</p>
+          <p style={{ marginTop: "10px", fontSize: "16px", color: "var(--text-description)" }}>Download my resume to explore my experience in manual testing, automation, API validation, and enterprise QA projects.</p>
 
           <a
             href="/BALA_SUBRA_MANIYAN_S_R_QA_Resume.pdf"
@@ -472,7 +472,7 @@ const pageContainer = {
   minHeight: "100vh",
   background: "transparent",
   padding: "clamp(100px, 12vh, 140px) clamp(10px, 4vw, 40px) 40px clamp(10px, 4vw, 40px)",
-  color: "white"
+  color: "var(--text-white)"
 };
 
 const gridContainer = {
@@ -483,7 +483,9 @@ const gridContainer = {
 };
 
 const imageCard = {
-  background: "rgba(255,255,255,0.05)",
+  background: "var(--bg-card)",
+  border: "1px solid var(--border-gold)",
+  boxShadow: "var(--card-shadow)",
   backdropFilter: "blur(10px)",
   borderRadius: "20px",
   textAlign: "center",
@@ -499,14 +501,18 @@ const rightColumn = {
 };
 
 const glassCard = {
-  background: "rgba(255,255,255,0.05)",
+  background: "var(--bg-card)",
+  border: "1px solid var(--border-gold)",
+  boxShadow: "var(--card-shadow)",
   padding: "45px",
   borderRadius: "20px",
   backdropFilter: "blur(10px)"
 };
 
 const glassCardLarge = {
-  background: "rgba(255,255,255,0.05)",
+  background: "var(--bg-card)",
+  border: "1px solid var(--border-gold)",
+  boxShadow: "var(--card-shadow)",
   padding: "40px",
   borderRadius: "20px",
   backdropFilter: "blur(10px)"
@@ -521,8 +527,8 @@ const badgeContainer = {
 
 const badge = {
   background: "transparent",
-  border: "1px solid rgba(212, 175, 55, 0.25)",
-  color: "#FFFFFF",
+  border: "1px solid var(--border-gold)",
+  color: "var(--text-white)",
   padding: "8px 15px",
   borderRadius: "20px",
   fontSize: "14px",
@@ -537,20 +543,25 @@ const bottomGrid = {
 };
 
 const resumeCard = {
-  background: "linear-gradient(135deg, #121212, #221B0B)",
-  border: "1px solid rgba(212, 175, 55, 0.3)",
-  boxShadow: "0 10px 30px rgba(212, 175, 55, 0.1)",
+  background: "var(--resume-card-bg)",
+  border: "var(--resume-card-border)",
+  boxShadow: "var(--resume-card-shadow)",
   padding: "40px",
   borderRadius: "20px",
-  textAlign: "center"
+  textAlign: "center",
+  color: "var(--text-white)",
+  transition: "all 0.3s ease"
 };
 
 
 const achievementItem = {
-  background: "rgba(255,255,255,0.03)",
+  background: "var(--bg-card)",
+  border: "1px solid var(--border-gold)",
+  boxShadow: "var(--card-shadow)",
   padding: "20px",
   borderRadius: "12px",
-  borderLeft: "4px solid #D4AF37",
+  borderLeft: "4px solid var(--accent-gold-text)",
   fontSize: "15px",
-  lineHeight: "1.6"
+  lineHeight: "1.6",
+  color: "var(--text-description)"
 };

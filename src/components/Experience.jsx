@@ -6,8 +6,8 @@ const expKeyframes = `
 
   .experience-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(212, 175, 55, 0.45) !important;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+    border-color: var(--border-gold-hover) !important;
+    box-shadow: 0 10px 30px var(--glow-gold);
   }
 
   @media (max-width: 768px) {
@@ -54,16 +54,16 @@ export default function Experience() {
           />
 
           <div>
-            <h2 style={roleTitle}>Quality Assurance Intern</h2>
-            <h3 style={company}>Mindgraph Technologies PVT LTD</h3>
-            <p style={duration}>Feb 2024 – Aug 2024</p>
+            <h2 style={{ ...roleTitle, color: "var(--text-white)", fontSize: "28px", fontWeight: "700" }}>Quality Assurance Intern</h2>
+            <h3 style={{ ...company, color: "var(--accent-gold-text)", fontWeight: "600", fontSize: "18px", opacity: 1 }}>Mindgraph Technologies PVT LTD</h3>
+            <p style={{ ...duration, color: "var(--text-secondary)", fontWeight: "500", opacity: 1 }}>Feb 2024 – Aug 2024</p>
 
-            <p style={description}>
+            <p style={{ ...description, color: "var(--text-description)", fontWeight: "500", lineHeight: "1.8", opacity: 1 }}>
               Gained hands-on experience in manual and automation testing
               of web and API-based applications.
             </p>
 
-            <ul style={list} className="experience-list">
+            <ul style={{ ...list, color: "var(--text-description)" }} className="experience-list">
               <li>Designed and executed functional & regression test cases.</li>
               <li>Performed API testing using Postman.</li>
               <li>Developed automation scripts using Selenium & TestNG.</li>
@@ -89,16 +89,16 @@ export default function Experience() {
           />
 
           <div>
-            <h2 style={roleTitle}>Quality Assurance Engineer</h2>
-            <h3 style={company}>Mindgraph Technologies PVT LTD</h3>
-            <p style={duration}>Aug 2024 – Present</p>
+            <h2 style={{ ...roleTitle, color: "var(--text-white)", fontSize: "28px", fontWeight: "700" }}>Quality Assurance Engineer</h2>
+            <h3 style={{ ...company, color: "var(--accent-gold-text)", fontWeight: "600", fontSize: "18px", opacity: 1 }}>Mindgraph Technologies PVT LTD</h3>
+            <p style={{ ...duration, color: "var(--text-secondary)", fontWeight: "500", opacity: 1 }}>Aug 2024 – Present</p>
 
-            <p style={description}>
+            <p style={{ ...description, color: "var(--text-description)", fontWeight: "500", lineHeight: "1.8", opacity: 1 }}>
               Leading end-to-end quality assurance activities for enterprise
               web and API-based applications ensuring stable production releases.
             </p>
 
-            <ul style={list} className="experience-list">
+            <ul style={{ ...list, color: "var(--text-description)" }} className="experience-list">
               <li>Designed detailed test cases & test scenarios.</li>
               <li>Performed functional, regression, integration & smoke testing.</li>
               <li>Automated test scripts using Selenium WebDriver & TestNG.</li>
@@ -122,14 +122,14 @@ const pageContainer = {
   padding: "120px 40px",
   minHeight: "100vh",
   background: "transparent",
-  color: "white"
+  color: "var(--text-white)"
 };
 
 const mainTitle = {
   fontSize: "42px",
   marginBottom: "10px",
   textAlign: "center",
-  color: "white",
+  color: "var(--text-white)",
   fontWeight: "bold"
 };
 
@@ -143,25 +143,27 @@ const timelineContainer = {
 };
 
 const verticalLine = {
-  width: "3px",
+  width: "4px",
   height: "70px",
-  background: "linear-gradient(to bottom, #D4AF37, #AA7C11)",
+  background: "linear-gradient(to bottom, var(--accent-gold-text), var(--accent-gold-hover))",
   borderRadius: "2px",
   opacity: 0,
-  animation: "expFadeSlideUp 0.6s ease-out 0.15s forwards"
+  animation: "expFadeSlideUp 0.6s ease-out 0.15s forwards",
+  boxShadow: "0 0 12px var(--glow-gold)"
 };
 
 const card = {
   display: "flex",
   gap: "25px",
-  background: "rgba(18, 18, 18, 0.75)",
-  border: "1px solid rgba(212, 175, 55, 0.15)",
+  background: "var(--bg-card)",
+  border: "1px solid var(--border-gold)",
   padding: "35px",
-  borderRadius: "20px",
+  borderRadius: "24px",
   backdropFilter: "blur(10px)",
   transition: "all 0.3s ease",
   alignItems: "flex-start",
-  width: "100%"
+  width: "100%",
+  boxShadow: "var(--card-shadow)"
 };
 
 const iconStyle = {

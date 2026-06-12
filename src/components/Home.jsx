@@ -1,96 +1,109 @@
 import { useNavigate } from "react-router-dom";
+import { FaShieldAlt, FaBug, FaCog, FaClock, FaRocket, FaDownload } from "react-icons/fa";
 
 export default function Home() {
   const navigate = useNavigate();
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/BALA_SUBRA_MANIYAN_S_R_QA_Resume.pdf";
+    link.download = "BALA_SUBRA_MANIYAN_S_R_QA_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div style={heroContainer}>
+    <div className="home-container">
       <div className="hero-glow-orb"></div>
 
-      <div style={content}>
-        <p style={smallTag}>QUALITY ASSURANCE ENGINEER</p>
+      {/* Main Split Section */}
+      <div className="hero-split-section">
+        {/* Left Side: Content */}
+        <div className="hero-left-content">
+          <div className="hero-badge-container">
+            <span className="hero-badge-dots">•••</span>
+            <span className="hero-badge-text">QUALITY ASSURANCE ENGINEER</span>
+            <span className="hero-badge-line"></span>
+          </div>
 
-        <h1 style={heading}>
-          Delivering
-          <span style={gradientText}> Reliable & Bug-Free </span>
-          Software Experiences
-        </h1>
+          <h1 className="hero-heading">
+            Delivering
+            <span className="gold-text-gradient"> Reliable & Bug-Free </span>
+            Software Experiences
+          </h1>
 
-        <p style={description}>
-          Hi, I’m <strong>Bala Subra Maniyan S R</strong>, a Quality Assurance Engineer focused on delivering reliable, scalable, and defect-free software through automation and strategic testing.
-        </p>
+          <p className="hero-description">
+            Hi, I’m <strong>Bala Subra Maniyan S R</strong>, a Quality Assurance Engineer focused on delivering reliable, scalable, and defect-free software through automation and strategic testing.
+          </p>
 
-        <button
-          className="home-explore-btn"
-          onClick={() => navigate("/projects")}
-          style={{ opacity: 0, animation: "fadeUp 1s ease forwards", animationDelay: "0.8s" }}
-        >
-          Explore My Work <span className="arrow">→</span>
-        </button>
+          <div className="hero-button-group">
+            <button
+              className="home-explore-btn"
+              onClick={() => navigate("/projects")}
+            >
+              Explore My Work <span className="arrow">→</span>
+            </button>
+            <button
+              className="home-resume-btn"
+              onClick={handleDownloadResume}
+            >
+              Download Resume <FaDownload className="download-icon" />
+            </button>
+          </div>
+        </div>
+
+        {/* Right Side: Graphic Emblem */}
+        <div className="hero-right-graphic">
+          <div className="graphic-outer-circle">
+            <div className="graphic-inner-circle">
+              <img src="/qa-logo-gold.jpg" alt="QA Emblem" className="graphic-emblem-img" />
+            </div>
+            <div className="orbit-dot dot-1"></div>
+            <div className="orbit-dot dot-2"></div>
+          </div>
+          <p className="graphic-subtext">QUALITY | PRECISION | RELIABILITY</p>
+        </div>
+      </div>
+
+      {/* Bottom Stats Bar */}
+      <div className="hero-stats-bar">
+        <div className="stat-item">
+          <FaShieldAlt className="stat-icon" />
+          <div className="stat-text-group">
+            <span className="stat-label">QUALITY FOCUS</span>
+            <span className="stat-value">100%</span>
+          </div>
+        </div>
+        <div className="stat-item">
+          <FaBug className="stat-icon" />
+          <div className="stat-text-group">
+            <span className="stat-label">DEFECT DETECTION</span>
+            <span className="stat-value">High Accuracy</span>
+          </div>
+        </div>
+        <div className="stat-item">
+          <FaCog className="stat-icon" />
+          <div className="stat-text-group">
+            <span className="stat-label">AUTOMATION</span>
+            <span className="stat-value">Selenium • TestNG</span>
+          </div>
+        </div>
+        <div className="stat-item">
+          <FaClock className="stat-icon" />
+          <div className="stat-text-group">
+            <span className="stat-label">EXPERIENCE</span>
+            <span className="stat-value">+ 2 Years</span>
+          </div>
+        </div>
+        <div className="stat-item">
+          <FaRocket className="stat-icon" />
+          <div className="stat-text-group">
+            <span className="stat-label">APPROACH</span>
+            <span className="stat-value">Strategic & Reliable</span>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
-const heroContainer = {
-  height: "100vh",
-  background: "transparent",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  textAlign: "center",
-  position: "relative",
-  color: "white",
-  overflow: "hidden"
-};
-
-const overlay = {
-  position: "absolute",
-  width: "100%",
-  height: "100%",
-  opacity: 0.3
-};
-
-const content = {
-  maxWidth: "900px",
-  zIndex: 1,
-  padding: "20px"
-};
-
-const smallTag = {
-  fontSize: "14px",
-  letterSpacing: "2px",
-  marginBottom: "20px",
-  opacity: 0,
-  color: "#D4AF37",
-  fontWeight: "600",
-  animation: "fadeUp 1s ease forwards",
-  animationDelay: "0.2s"
-};
-
-const heading = {
-  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-  fontWeight: "bold",
-  lineHeight: "1.2",
-  opacity: 0,
-  animation: "fadeUp 1s ease forwards",
-  animationDelay: "0.4s"
-};
-
-const gradientText = {
-  background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11, #F3E5AB)",
-  backgroundSize: "200% auto",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  display: "inline-block",
-  animation: "gradientShift 4s linear infinite, float 4s ease-in-out infinite"
-};
-
-const description = {
-  marginTop: "30px",
-  fontSize: "18px",
-  lineHeight: "1.7",
-  opacity: 0,
-  animation: "fadeUp 1s ease forwards",
-  animationDelay: "0.6s"
-};
-

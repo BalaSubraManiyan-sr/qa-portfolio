@@ -1,143 +1,116 @@
-import { FaClipboardCheck, FaBug, FaRocket } from "react-icons/fa";
-
-const approachStyles = `
-  .approach-card {
-    border: 1px solid rgba(212, 175, 55, 0.15);
-  }
-  .approach-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(212, 175, 55, 0.45);
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
-    filter: brightness(1.15);
-  }
-`;
-if (typeof document !== 'undefined' && !document.getElementById('approach-styles')) {
-  document.head.insertAdjacentHTML("beforeend", "<style id='approach-styles'>" + approachStyles + "</style>");
-}
+import { motion } from "framer-motion";
+import { FaClipboardCheck, FaShieldAlt, FaRocket } from "react-icons/fa";
 
 export default function Approach() {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 1, 0.5, 1]
+      }
+    }
+  };
+
   return (
-    <div style={pageContainer}>
-      <h1 style={title}>
-        My <span style={gradientText}>QA Approach</span>
+    <div className="approach-container">
+      {/* Background Dot Decoration */}
+      <div className="approach-bg-dots"></div>
+
+      <h1 className="approach-title">
+        <span className="first-word">My</span> <span className="gradient-text">QA Approach</span>
       </h1>
 
-      <div style={gridContainer}>
-
-        {/* PHASE 1 */}
-        <div style={{ ...card, background: phase1 }} className="approach-card">
-          <div style={iconHeader}>
-            <span style={numberStyle}>01</span>
-            <FaClipboardCheck style={iconStyle} />
+      <motion.div 
+        className="approach-cards-wrapper"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        {/* Card 01 */}
+        <motion.div 
+          className="approach-card"
+          variants={cardVariants}
+        >
+          <span className="approach-step-number">01</span>
+          <div className="approach-icon-container">
+            <FaClipboardCheck className="approach-icon" />
           </div>
-          <h2>Requirement Analysis & Planning</h2>
-          <p>
+          <h3 className="approach-card-title">Requirement Analysis & Planning</h3>
+          <p className="approach-card-desc">
             Collaborate with stakeholders to understand business
             requirements, functional flows, and edge cases.
             Design detailed test scenarios, test data, and test plans
             aligned with release goals.
           </p>
-        </div>
+        </motion.div>
 
-        {/* PHASE 2 */}
-        <div style={{ ...card, background: phase2 }} className="approach-card">
-          <div style={iconHeader}>
-            <span style={numberStyle}>02</span>
-            <FaBug style={iconStyle} />
+        {/* Connector 1 */}
+        <motion.div 
+          className="approach-connector"
+          variants={cardVariants}
+        >
+          <div className="approach-line"></div>
+          <div className="approach-arrow-head"></div>
+        </motion.div>
+
+        {/* Card 02 */}
+        <motion.div 
+          className="approach-card"
+          variants={cardVariants}
+        >
+          <span className="approach-step-number">02</span>
+          <div className="approach-icon-container">
+            <FaShieldAlt className="approach-icon" />
           </div>
-          <h2>Test Execution & Validation</h2>
-          <p>
+          <h3 className="approach-card-title">Test Execution & Validation</h3>
+          <p className="approach-card-desc">
             Execute functional, regression, integration,
             smoke, and API testing to validate system stability
             and reliability. Automate critical workflows
             using Selenium WebDriver and TestNG.
           </p>
-        </div>
+        </motion.div>
 
-        {/* PHASE 3 */}
-        <div style={{ ...card, background: phase3 }} className="approach-card">
-          <div style={iconHeader}>
-            <span style={numberStyle}>03</span>
-            <FaRocket style={iconStyle} />
+        {/* Connector 2 */}
+        <motion.div 
+          className="approach-connector"
+          variants={cardVariants}
+        >
+          <div className="approach-line"></div>
+          <div className="approach-arrow-head"></div>
+        </motion.div>
+
+        {/* Card 03 */}
+        <motion.div 
+          className="approach-card"
+          variants={cardVariants}
+        >
+          <span className="approach-step-number">03</span>
+          <div className="approach-icon-container">
+            <FaRocket className="approach-icon" />
           </div>
-          <h2>Release & Continuous Improvement</h2>
-          <p>
+          <h3 className="approach-card-title">Release & Continuous Improvement</h3>
+          <p className="approach-card-desc">
             Support SIT & UAT phases, track defects, and ensure
             production stability. Improve automation coverage,
             optimize QA processes, and enhance release confidence
             through continuous feedback.
           </p>
-        </div>
-
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
-
-/* ================= STYLES ================= */
-
-const pageContainer = {
-  paddingTop: "120px",
-  padding: "120px 40px",
-  minHeight: "100vh",
-  background: "transparent",
-  color: "white"
-};
-
-const title = {
-  textAlign: "center",
-  fontSize: "42px",
-  marginBottom: "70px"
-};
-
-const gradientText = {
-  background: "linear-gradient(90deg, #F3E5AB, #D4AF37, #AA7C11)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent"
-};
-
-const gridContainer = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-  gap: "40px"
-};
-
-const card = {
-  padding: "40px 35px",
-  borderRadius: "20px",
-  minHeight: "350px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-start",
-  transition: "all 0.4s ease",
-  cursor: "pointer"
-};
-
-const iconHeader = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  marginBottom: "20px"
-};
-
-const numberStyle = {
-  fontSize: "48px",
-  fontWeight: "bold",
-  opacity: 0.2,
-  lineHeight: 1
-};
-
-const iconStyle = {
-  fontSize: "36px",
-  color: "#fff",
-  opacity: 0.9
-};
-
-const phase1 =
-  "linear-gradient(135deg, #121212, #261F10)";
-
-const phase2 =
-  "linear-gradient(135deg, #121212, #302612)";
-
-const phase3 =
-  "linear-gradient(135deg, #121212, #3B2E15)";

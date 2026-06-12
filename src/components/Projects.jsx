@@ -118,7 +118,7 @@ export default function Projects() {
           All enterprise projects delivered under
           <strong> Malaysia Airports Holdings Berhad (MAHB)</strong>
         </p>
-        <p style={{ ...companyText, marginTop: "15px", opacity: 0.9, lineHeight: "1.6", maxWidth: "100%" }}>
+        <p style={{ ...companyText, marginTop: "15px", color: "var(--text-description)", lineHeight: "1.6", maxWidth: "100%" }}>
           Maintained 100% client satisfaction across the MAHB ecosystem by facilitating transparent communication and conducting collaborative UAT sessions directly with stakeholders to guarantee seamless deployment.
         </p>
       </div>
@@ -143,11 +143,9 @@ export default function Projects() {
                 </div>
               </div>
             )}
-            <div style={cardHeader}>
-              <div>
-                <h2 style={{ fontSize: "20px" }}>{project.title}</h2>
-                <p style={{ opacity: 0.7, marginTop: "5px" }}>{project.domain}</p>
-              </div>
+            <div style={cardContent}>
+              <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-white)", lineHeight: "1.3", margin: "0" }}>{project.title}</h2>
+              <p style={{ fontSize: "16px", fontWeight: "400", color: "var(--text-description)", margin: "0" }}>{project.domain}</p>
             </div>
           </div>
         ))}
@@ -156,11 +154,11 @@ export default function Projects() {
       {/* Internship Section */}
       <h2 style={{ ...mainTitle, marginTop: "60px", marginBottom: "10px" }}>Internship Projects</h2>
 
-      <div className="projects-grid intern-grid" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "30px" }}>
+      <div className="projects-grid intern-grid" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "32px" }}>
         {internProjects.map((project, index) => (
           <div
             key={index}
-            style={{ ...card, flex: "1 1 350px", maxWidth: "600px" }}
+            style={card}
             className="reveal"
             onClick={(e) => handleProjectClick(e, project, 'intern')}
           >
@@ -175,11 +173,9 @@ export default function Projects() {
                 </div>
               </div>
             )}
-            <div style={cardHeader}>
-              <div>
-                <h2 style={{ fontSize: "20px" }}>{project.title}</h2>
-                <p style={{ opacity: 0.8, marginTop: "10px", lineHeight: "1.5" }}>{project.domain}</p>
-              </div>
+            <div style={cardContent}>
+              <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-white)", lineHeight: "1.3", margin: "0" }}>{project.title}</h2>
+              <p style={{ fontSize: "16px", fontWeight: "400", color: "var(--text-description)", margin: "0" }}>{project.domain}</p>
             </div>
           </div>
         ))}
@@ -195,9 +191,10 @@ export default function Projects() {
               zIndex: 1001,
               animation: "modalZoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards"
             }}
+            className="project-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button style={modalCloseBtn} onClick={() => setSelectedProject(null)}>×</button>
+            <button style={modalCloseBtn} className="project-modal-close-btn" onClick={() => setSelectedProject(null)}>×</button>
             {selectedProject.image && (
               <div style={modalImageContainer}>
                 <img
@@ -207,11 +204,11 @@ export default function Projects() {
                 />
               </div>
             )}
-            <h2 style={{ marginBottom: "10px", fontSize: "20px", lineHeight: "1.3", color: "white" }}>{selectedProject.title}</h2>
-            <p style={{ opacity: 0.8, marginBottom: "25px", color: "#D4AF37" }}>{selectedProject.domain}</p>
-            <ul style={{ ...bulletList, marginTop: "0" }}>
+            <h2 style={{ marginBottom: "10px", fontSize: "24px", fontWeight: "700", lineHeight: "1.3", color: "var(--text-white)" }}>{selectedProject.title}</h2>
+            <p style={{ fontWeight: "600", marginBottom: "25px", color: "var(--accent-gold-text)" }}>{selectedProject.domain}</p>
+            <ul style={{ ...bulletList, marginTop: "0" }} className="project-modal-list">
               {selectedProject.points.map((point, i) => (
-                <li key={i} style={{ marginBottom: "15px", lineHeight: "1.6" }}>{point}</li>
+                <li key={i} style={{ marginBottom: "15px", lineHeight: "1.9", color: "var(--text-description)", fontWeight: "500" }}>{point}</li>
               ))}
             </ul>
           </div>
@@ -228,7 +225,7 @@ const pageContainer = {
   paddingTop: "120px",
   padding: "120px 40px 40px 40px",
   background: "transparent",
-  color: "white",
+  color: "var(--text-white)",
   minHeight: "100vh"
 };
 
@@ -246,10 +243,9 @@ const modalKeyframes = `
 
   .project-image-container {
     width: 100%;
-    height: 200px;
-    border-radius: 10px;
+    height: 180px;
     overflow: hidden;
-    margin-bottom: 15px;
+    border-radius: 14px;
     perspective: 1000px; /* Essential for 3D effect */
   }
 
@@ -265,14 +261,14 @@ const modalKeyframes = `
     filter: brightness(1.1) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4));
   }
   .reveal {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-gold);
   }
 
   .reveal:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.25);
-    border-color: rgba(212, 175, 55, 0.45);
+    border-color: var(--border-gold-hover) !important;
+    box-shadow: var(--card-shadow-hover) !important;
   }
 `;
 
@@ -282,7 +278,7 @@ const mainTitle = {
   fontSize: "40px",
   marginBottom: "10px",
   textAlign: "center",
-  color: "white",
+  color: "var(--text-white)",
   fontWeight: "bold"
 };
 
@@ -296,22 +292,34 @@ const companyText = {
 };
 
 const card = {
-  background: "rgba(255,255,255,0.05)",
-  padding: "30px",
-  borderRadius: "15px",
+  background: "linear-gradient(180deg, #151515 0%, #0B0B0B 100%)",
+  border: "1px solid var(--border-gold)",
+  padding: "24px",
+  borderRadius: "20px",
   cursor: "pointer",
   backdropFilter: "blur(10px)",
   transition: "all 0.3s ease",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "flex-start",
-  height: "fit-content"
+  gap: "18px",
+  height: "auto",
+  minHeight: "unset",
+  width: "100%",
+  maxWidth: "600px",
+  boxShadow: "0 8px 30px rgba(0,0,0,0.35)"
+};
+
+const cardContent = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+  padding: "0"
 };
 
 const bulletList = {
   marginTop: "20px",
   paddingLeft: "20px",
-  color: "#e2e8f0",
+  color: "var(--text-gray)",
   animation: "fadeIn 0.3s ease-in-out"
 };
 
@@ -327,7 +335,7 @@ const modalOverlay = {
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: "rgba(10, 10, 10, 0.96)",
+  backgroundColor: "var(--modal-overlay-bg)",
   backdropFilter: "blur(10px)",
   display: "flex",
   justifyContent: "center",
@@ -337,14 +345,14 @@ const modalOverlay = {
 };
 
 const modalContent = {
-  background: "#121212",
+  background: "var(--bg-card)",
   padding: "clamp(20px, 5vw, 40px)",
   borderRadius: "20px",
   maxWidth: "800px",
   width: "95%",
   position: "relative",
-  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15)",
-  border: "1px solid rgba(212, 175, 55, 0.3)",
+  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 25px var(--glow-gold)",
+  border: "1px solid var(--border-gold)",
   boxSizing: "border-box",
   maxHeight: "90vh",
   overflowY: "auto"
@@ -354,9 +362,9 @@ const modalCloseBtn = {
   position: "absolute",
   top: "15px",
   right: "15px",
-  background: "rgba(10, 10, 10, 0.8)",
-  border: "1px solid #D4AF37",
-  color: "#D4AF37",
+  background: "var(--bg-dark)",
+  border: "1px solid var(--accent-gold-text)",
+  color: "var(--accent-gold-text)",
   fontSize: "24px",
   cursor: "pointer",
   lineHeight: "36px",
